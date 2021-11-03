@@ -10,6 +10,17 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
+# Widget (Cryptocurrency selection box)
+col1_selection = st.sidebar.selectbox()
+col2_selection = st.sidebar.selectbox()
+col3_selection = st.sidebar.selectbox()
+col4_selection = st.sidebar.selectbox()
+col5_selection = st.sidebar.selectbox()
+col6_selection = st.sidebar.selectbox()
+col7_selection = st.sidebar.selectbox()
+col8_selection = st.sidebar.selectbox()
+col9_selection = st.sidebar.selectbox()
+
 geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
 geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
 geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
