@@ -28,7 +28,6 @@ geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_
 dfs_year = pd.DataFrame({'year': [2017, 2018, 2019]})
 dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
 dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
-dfs_year
 
 fig = go.Figure()
 
