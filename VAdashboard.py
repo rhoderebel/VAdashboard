@@ -10,7 +10,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
-if st.sidebar.selectbox('Kies een pagina: ', ['co2 kaarten', 'woningdichtheid kaarten']):
+if st.sidebar.selectbox('Kies een pagina: ', ['co2 kaarten', 'woningdichtheid kaarten']) == 'co2 kaarten':
 
     geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
     geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
