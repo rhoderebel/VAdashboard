@@ -10,7 +10,10 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
-st.sidebar.selectbox('Select a number: ', [1, 2, 3, 4, 5])
+st.sidebar.selectbox('Select a number: ', ['test', 'nee', 'ja'])
+
+if st.checkbox('test'):
+    st.header('TEST')
 
 geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
 geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
