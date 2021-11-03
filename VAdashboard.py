@@ -12,7 +12,7 @@ import streamlit as st
 
 st.sidebar.selectbox('Select a number: ', ['test', 'nee', 'ja'])
 
-if st.sidebar.selectbox('Select a number: ', Union['test', 'nee', 'ja']):
+if st.sidebar.selectbox('Select a number: ', ['test2', 'nee2', 'ja2']):
     st.header('TEST')
 
 geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
