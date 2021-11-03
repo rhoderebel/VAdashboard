@@ -48,7 +48,8 @@ if st.sidebar.selectbox('Kies een pagina: ', ['co2 kaarten', 'woningdichtheid ka
                                           zmax=k['totaal_co2'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
                                           name = i, visible = v,
-                                          featureidkey="properties.statnaam"))
+                                          featureidkey="properties.statnaam",
+                                          colorbar={"title": 'CO₂-uitstoot (in ton)'}))
         c += 1
 
 
@@ -109,7 +110,8 @@ if st.sidebar.selectbox('Kies een pagina: ', ['co2 kaarten', 'woningdichtheid ka
                                           zmax=k['totaal_co2'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
                                           name = i, visible = v,
-                                          featureidkey="properties.statnaam"))
+                                          featureidkey="properties.statnaam",
+                                          colorbar={"title": 'CO₂-uitstoot (in ton)'}))
         c += 1
 
 
@@ -170,7 +172,8 @@ if st.sidebar.selectbox('Kies een pagina: ', ['co2 kaarten', 'woningdichtheid ka
                                           zmax=k['totaal_co2'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
                                           name = i, visible = v,
-                                          featureidkey="properties.statnaam"))
+                                          featureidkey="properties.statnaam",
+                                          colorbar={"title": 'CO₂-uitstoot (in ton)'}))
         c += 1
 
 
