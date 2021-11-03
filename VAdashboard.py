@@ -16,11 +16,11 @@ geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
 
 geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
 
-with open('geo_co2_merge_2017.json', encoding='utf-8') as geofile:
+with open('geo_co2_merge_2017.json', encoding = "ISO-8859-1") as geofile:
     geo_co2_merge_2017_json = json.load(geofile) 
-with open('geo_co2_merge_2018.json', encoding='utf-8') as geofile:
+with open('geo_co2_merge_2018.json', encoding = "ISO-8859-1") as geofile:
     geo_co2_merge_2018_json = json.load(geofile) 
-with open('geo_co2_merge_2019.json', encoding='utf-8') as geofile:
+with open('geo_co2_merge_2019.json', encoding = "ISO-8859-1") as geofile:
     geo_co2_merge_2019_json = json.load(geofile) 
 
 geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
