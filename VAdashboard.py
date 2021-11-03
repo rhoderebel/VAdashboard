@@ -16,9 +16,12 @@ geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
 
 geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
 
-geo_co2_merge_2017_json = pd.read_json('geo_co2_merge_2017.json')
-geo_co2_merge_2018_json = pd.read_json('geo_co2_merge_2018.json')
-geo_co2_merge_2019_json = pd.read_json('geo_co2_merge_2019.json')
+with open('VAdashboard/geo_co2_merge_2017.json') as geofile:
+    geo_co2_merge_2017_json = json.load(geofile) 
+with open('VAdashboard/geo_co2_merge_2018.json') as geofile:
+    geo_co2_merge_2017_json = json.load(geofile) 
+with open('VAdashboard/geo_co2_merge_2019.json') as geofile:
+    geo_co2_merge_2017_json = json.load(geofile) 
 
 geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
 
