@@ -8,6 +8,7 @@ import shapely.wkt
 import folium
 import numpy as np
 import plotly.graph_objects as go
+import streamlit as st
 
 geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
 geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
