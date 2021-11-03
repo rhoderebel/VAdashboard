@@ -88,7 +88,7 @@ fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
                   font_family = "Calibri Light",
                   title_font_size = 18)
 
-fig.show() # Laat de plot zien
+st.plotly_chart(fig) # Laat de plot zien
 
 fig = go.Figure()
 
@@ -149,7 +149,7 @@ fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
                   font_family = "Calibri Light",
                   title_font_size = 18)
 
-fig.show() # Laat de plot zien
+st.plotly_chart(fig) # Laat de plot zien
 
 fig = go.Figure()
 
@@ -210,6 +210,5 @@ fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
                   font_family = "Calibri Light",
                   title_font_size = 18)
 
-fig.show() # Laat de plot zien
-
+st.plotly_chart(fig) # Laat de plot zien
 
