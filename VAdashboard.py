@@ -117,7 +117,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
     
     with col3:
         st.markdown(""" <style> .font {
-        font-size:50px;} 
+        font-size:20px;} 
         </style> """, unsafe_allow_html=True)
         st.markdown('**Top 5: totale CO₂-uitstoot per gemeente**')
         
