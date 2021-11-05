@@ -296,6 +296,69 @@ if sidebar_page == 'CO₂-uitstoot':
          
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
+        
+        radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
+        
+        col2a, col2b = st.columns(2)
+        with col2a:
+            st.markdown('**Uitschieters totale CO₂-uitstoot exclusief auto(snel)wegen (> 1 miljoen ton)**')
+            
+            outliers_ext_2017 = (histdata[(histdata['totaal_co2_ext_weg'] >= 1000000) & 
+                                 (histdata['Jaar'] == 2017)]
+                        .sort_values(by = 'totaal_co2_ext_weg', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            outliers_ext_2018 = (histdata[(histdata['totaal_co2_ext_weg'] >= 1000000) & 
+                                 (histdata['Jaar'] == 2018)]
+                        .sort_values(by = 'totaal_co2_ext_weg', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            outliers_ext_2019 = (histdata[(histdata['totaal_co2_ext_weg'] >= 1000000) & 
+                                 (histdata['Jaar'] == 2019)]
+                        .sort_values(by = 'totaal_co2_ext_weg', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            
+            outliers_ext = pd.DataFrame({'2017': outliers_ext_2017, '2018': outliers_ext_2018, '2019': outliers_ext_2019})
+            outliers_ext.index += 1
+            outliers_ext.fillna('-', inplace = True)
+
+            st.table(outliers_ext)
+
+        with col1b:
+            if radio_zoom_hist == 'Volledig':
+                fig = px.histogram(histdata, x="totaal_co2_ext_weg", color = 'Jaar', nbins = 400,
+                  color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+
+                fig.update_layout(
+                    title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente</b>',
+                    xaxis_title_text='CO₂-uitstoot (in ton)',
+                    yaxis_title_text='Frequentie (aantal gemeenten)',
+                    font_family = "Calibri Light",
+                    title_font_size = 22,
+                    xaxis_title_font_size = 18,
+                    yaxis_title_font_size = 18,
+                    legend_title_font_size = 16,
+                    plot_bgcolor='#d8dcdc'
+                )
+
+                st.plotly_chart(fig, use_container_width=True)                
+                                
+            elif radio_zoom_hist == 'Zonder uitschieters':
+                fig = px.histogram(histdata, x="totaal_co2_ext_weg", color = 'Jaar', nbins = 400,
+                  color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+
+                fig.update_layout(
+                    title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente</b> (ingezoomd)',
+                    xaxis_title_text='CO₂-uitstoot (in ton)',
+                    yaxis_title_text='Frequentie (aantal gemeenten)',
+                    font_family = "Calibri Light",
+                    title_font_size = 22,
+                    xaxis_title_font_size = 18,
+                    yaxis_title_font_size = 18,
+                    legend_title_font_size = 16,
+                    plot_bgcolor='#d8dcdc',
+                    xaxis_range = [0, 1000000]
+                )
+
+                st.plotly_chart(fig, use_container_width=True)
     
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
