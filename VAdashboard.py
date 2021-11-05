@@ -230,7 +230,9 @@ if sidebar_page == 'CO₂-uitstoot':
         with col3:
 
             fig = go.Figure()
-
+            min_ext = min(geo_co2_merge_2017['totaal_co2_ext_weg'].min(), geo_co2_merge_2018['totaal_co2_ext_weg'].min(), geo_co2_merge_2019['totaal_co2_ext_weg'].min())
+            max_ext = min(geo_co2_merge_2017['totaal_co2_ext_weg'].max(), geo_co2_merge_2018['totaal_co2_ext_weg'].max(), geo_co2_merge_2019['totaal_co2_ext_weg'].max())
+               
             c = 0
 
             for i, j, k in zip(dfs_year.year, dfs_year.geojson_year, dfs_year.geo_year):
@@ -242,8 +244,8 @@ if sidebar_page == 'CO₂-uitstoot':
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['totaal_co2_ext_weg'],
                                                   colorscale='sunsetdark',
-                                                  zmin=k['totaal_co2_ext_weg'].min(),
-                                                  zmax=k['totaal_co2_ext_weg'].max(),
+                                                  zmin=min_ext,
+                                                  zmax=max_ext,
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
@@ -384,6 +386,8 @@ if sidebar_page == 'CO₂-uitstoot':
         with col5:
 
             fig = go.Figure()
+            min_won = min(geo_co2_merge_2017['co2_woningen'].min(), geo_co2_merge_2018['co2_woningen'].min(), geo_co2_merge_2019['co2_woningen'].min())
+            max_won = min(geo_co2_merge_2017['co2_woningen'].max(), geo_co2_merge_2018['co2_woningen'].max(), geo_co2_merge_2019['co2_woningen'].max())
 
             c = 0
 
@@ -396,8 +400,8 @@ if sidebar_page == 'CO₂-uitstoot':
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['co2_woningen'],
                                                   colorscale='sunsetdark',
-                                                  zmin=k['co2_woningen'].min(),
-                                                  zmax=k['co2_woningen'].max(),
+                                                  zmin=min_won,
+                                                  zmax=max_won,
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
