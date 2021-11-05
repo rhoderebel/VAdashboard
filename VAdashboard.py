@@ -322,7 +322,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(outliers_ext)
 
-        with col1b:
+        with col2b:
             if radio_zoom_hist == 'Volledig':
                 fig = px.histogram(histdata, x="totaal_co2_ext_weg", color = 'Jaar', nbins = 400,
                   color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
