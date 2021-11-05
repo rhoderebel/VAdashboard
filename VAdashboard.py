@@ -130,68 +130,91 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         top5_totaal = top5_totaal[['2017', '2018', '2019']]
         
         st.table(top5_totaal)
+    
+    col4, col5, col6 = st.columns(3)
+    
+    with col4:
 
-    fig = go.Figure()
+        fig = go.Figure()
 
-    c = 0
+        c = 0
 
-    for i, j, k in zip(dfs_year.year, dfs_year.geojson_year, dfs_year.geo_year):
-        if c == 0:
-            v = True # In eerste instantie is alleen 2017 zichtbaar
-        else:
-            v = False
+        for i, j, k in zip(dfs_year.year, dfs_year.geojson_year, dfs_year.geo_year):
+            if c == 0:
+                v = True # In eerste instantie is alleen 2017 zichtbaar
+            else:
+                v = False
 
-        fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
-                                          z = k['totaal_co2_ext_weg'],
-                                          colorscale='Oranges',
-                                          zmin=k['totaal_co2_ext_weg'].min(),
-                                          zmax=k['totaal_co2_ext_weg'].max(),
-                                          marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
-                                          name = i, visible = v,
-                                          featureidkey="properties.statnaam",
-                                          colorbar={"title": 'CO₂-uitstoot (in ton)'}))
-        c += 1
+            fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
+                                              z = k['totaal_co2_ext_weg'],
+                                              colorscale='Oranges',
+                                              zmin=k['totaal_co2_ext_weg'].min(),
+                                              zmax=k['totaal_co2_ext_weg'].max(),
+                                              marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
+                                              name = i, visible = v,
+                                              featureidkey="properties.statnaam",
+                                              colorbar={"title": 'CO₂-uitstoot (in ton)'}))
+            c += 1
 
 
-    # Create and add slider
-    steps = []
-    year_start = 2017
-    for i in range(len(fig.data)):
-        step = dict(
-            method="update",
-            args=[{"visible": [False] * len(fig.data)}],  # layout attribute
+        # Create and add slider
+        steps = []
+        year_start = 2017
+        for i in range(len(fig.data)):
+            step = dict(
+                method="update",
+                args=[{"visible": [False] * len(fig.data)}],  # layout attribute
+            )
+            step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
+            steps.append(step)
+
+        sliders = [dict(
+            active=True,
+            currentvalue={"prefix": "Jaar: "},
+            steps=steps
+        )]
+
+        fig.update_layout(
+            sliders=sliders
         )
-        step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
-        steps.append(step)
 
-    sliders = [dict(
-        active=True,
-        currentvalue={"prefix": "Jaar: "},
-        steps=steps
-    )]
+        # Update de layout van de kaart
+        fig.update_layout(mapbox_style="carto-positron",
+                          mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
-    fig.update_layout(
-        sliders=sliders
-    )
+        # Edit slider labels
+        fig['layout']['sliders'][0]['currentvalue']['prefix']='Jaar: '
+        for i, jaar in enumerate([2017, 2018, 2019], start = 0):
+            fig['layout']['sliders'][0]['steps'][i]['label']=jaar
 
-    # Update de layout van de kaart
-    fig.update_layout(mapbox_style="carto-positron",
-                      mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
+        # Zet de margins
+        fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
+                          title = 'Totaal bekende CO₂-uitstoot exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
+                          title_x = 0.5,
+                          title_y = 0.97,
+                          font_family = "Calibri Light",
+                          title_font_size = 18)
 
-    # Edit slider labels
-    fig['layout']['sliders'][0]['currentvalue']['prefix']='Jaar: '
-    for i, jaar in enumerate([2017, 2018, 2019], start = 0):
-        fig['layout']['sliders'][0]['steps'][i]['label']=jaar
-
-    # Zet de margins
-    fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                      title = 'Totaal bekende CO₂-uitstoot exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
-                      title_x = 0.5,
-                      title_y = 0.97,
-                      font_family = "Calibri Light",
-                      title_font_size = 18)
-
-    st.plotly_chart(fig) # Laat de plot zien
+        st.plotly_chart(fig) # Laat de plot zien
+    
+    with col5:
+        st.write("")
+    
+    with col6:
+        st.markdown('**Top 5: totale CO₂-uitstoot exclusief<br>auto(snel)snelwegen per gemeente**')
+        
+        top5_2017_ext = geo_co2_merge_2017.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
+        top5_2018_ext = geo_co2_merge_2018.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
+        top5_2019_ext = geo_co2_merge_2019.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
+        
+        top5_ext = pd.DataFrame([top5_2017_ext['Gemeenten'], top5_2017_ext['totaal_co2_ext_weg'], top5_2018_ext['totaal_co2_ext_weg'], top5_2019_ext['totaal_co2_ext_weg']])
+        top5_ext = top5_ext.transpose()
+        top5_ext.columns = ['Gemeenten', '2017', '2018', '2019']
+        top5_ext[["2017", "2018", "2019"]] = top5_ext[["2017", "2018", "2019"]].astype(int)
+        top5_ext.index = top5_ext['Gemeenten']
+        top5_ext = top5_ext[['2017', '2018', '2019']]
+        
+        st.table(top5_ext)
 
     fig = go.Figure()
 
