@@ -31,28 +31,29 @@ sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Won
 radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
 
 if sidebar_page == 'CO₂-uitstoot':
+    
+    geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
+    geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
+    geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
+
+    geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
+
+    with open('geo_co2_merge_2017.json', encoding = "ISO-8859-1") as geofile:
+        geo_co2_merge_2017_json = json.load(geofile) 
+    with open('geo_co2_merge_2018.json', encoding = "ISO-8859-1") as geofile:
+        geo_co2_merge_2018_json = json.load(geofile) 
+    with open('geo_co2_merge_2019.json', encoding = "ISO-8859-1") as geofile:
+        geo_co2_merge_2019_json = json.load(geofile) 
+
+    geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
+
+    dfs_year = pd.DataFrame({'year': [2017, 2018, 2019]})
+    dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
+    dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
+    
     if radio_co2_type == 'Totale CO₂-uitstoot':
         col1, col2, col3 = st.columns(3)
         with col1:
-
-            geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
-            geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
-            geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
-
-            geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
-
-            with open('geo_co2_merge_2017.json', encoding = "ISO-8859-1") as geofile:
-                geo_co2_merge_2017_json = json.load(geofile) 
-            with open('geo_co2_merge_2018.json', encoding = "ISO-8859-1") as geofile:
-                geo_co2_merge_2018_json = json.load(geofile) 
-            with open('geo_co2_merge_2019.json', encoding = "ISO-8859-1") as geofile:
-                geo_co2_merge_2019_json = json.load(geofile) 
-
-            geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
-
-            dfs_year = pd.DataFrame({'year': [2017, 2018, 2019]})
-            dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
-            dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
 
             fig = go.Figure()
 
