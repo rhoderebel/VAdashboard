@@ -140,9 +140,9 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen</h1>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
-        col4, col5, col6 = st.columns(3)
+        col3, col4 = st.columns([2,1])
 
-        with col4:
+        with col3:
 
             fig = go.Figure()
 
@@ -206,10 +206,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
-        with col5:
-            st.markdown("")
-
-        with col6:
+        with col4:
             st.markdown('**Top 5: totale CO₂-uitstoot (in ton) exclusief auto(snel)snelwegen per gemeente**')
 
             top5_2017_ext = geo_co2_merge_2017.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
@@ -229,9 +226,9 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
-        col7, col8, col9 = st.columns(3)
+        col5, col6 = st.columns([2,1])
 
-        with col7:
+        with col5:
 
             fig = go.Figure()
 
@@ -295,10 +292,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
-        with col8:
-            st.markdown("")
-
-        with col9:
+        with col6:
             st.markdown('**Top 5: CO₂-uitstoot (in ton) woningen per gemeente**')
 
             top5_2017_won = geo_co2_merge_2017.sort_values(by = 'co2_woningen', ascending = False)[['Gemeenten', 'co2_woningen']].reset_index(drop = True).head(5)
