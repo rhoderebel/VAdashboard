@@ -286,7 +286,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.write("")
         
     with col9:
-        st.markdown('**Top 5: CO₂-uitstoot woningen per gemeente**')
+        st.markdown('**Top 5: CO₂-uitstoot (in ton) woningen per gemeente**')
         
         top5_2017_won = geo_co2_merge_2017.sort_values(by = 'co2_woningen', ascending = False)[['Gemeenten', 'co2_woningen']].reset_index(drop = True).head(5)
         top5_2018_won = geo_co2_merge_2018.sort_values(by = 'co2_woningen', ascending = False)[['Gemeenten', 'co2_woningen']].reset_index(drop = True).head(5)
