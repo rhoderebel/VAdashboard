@@ -522,75 +522,127 @@ if sidebar_page == 'CO₂-uitstoot':
 
 #################################################################################################################################################################                
 if sidebar_page == 'Woningdichtheid':
-    st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
-    green_block("Hier komt informatie")
+     st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
+     st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
+     green_block("Hier komt informatie")
     
     # Inladen data woningdichtheid
-    woningdichtheid = pd.read_csv('woningdichtheid.csv')
-    geo_woningdichtheid_2019_merge = pd.read_csv('geo_woningdichtheid_2019_merge.csv')
+     woningdichtheid = pd.read_csv('woningdichtheid.csv')
+     geo_woningdichtheid_2019_merge = pd.read_csv('geo_woningdichtheid_2019_merge.csv')
     
-    with open('geo_woningdichtheid_2019_merge.json', encoding = "ISO-8859-1") as geofile:
-        geo_woningdichtheid_2019_merge_json = json.load(geofile) 
+     with open('geo_woningdichtheid_2019_merge.json', encoding = "ISO-8859-1") as geofile:
+          geo_woningdichtheid_2019_merge_json = json.load(geofile) 
     
-    col1, col2 = st.columns([2,1])
+     col1, col2 = st.columns([2,1])
     
-    with col1:
-        # Kaart woningdichtheid
-        fig_wd = go.Figure(go.Choroplethmapbox(geojson=geo_woningdichtheid_2019_merge_json,
-                                        locations=geo_woningdichtheid_2019_merge['Gemeenten'],
-                                        z=geo_woningdichtheid_2019_merge['Woningdichtheid'],
-                                        colorscale="deep",
-                                        zmin=geo_woningdichtheid_2019_merge['Woningdichtheid'].min(),
-                                        zmax=geo_woningdichtheid_2019_merge['Woningdichtheid'].max(),
-                                        marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'cadetblue',
-                                        featureidkey="properties.statnaam",
-                                        colorbar={'title':'Woningdichtheid<br>(aantal woningen<br>per km²)'}
-                                       ))
+     with col1:
+          # Kaart woningdichtheid
+          fig_wd = go.Figure(go.Choroplethmapbox(geojson=geo_woningdichtheid_2019_merge_json,
+                                          locations=geo_woningdichtheid_2019_merge['Gemeenten'],
+                                          z=geo_woningdichtheid_2019_merge['Woningdichtheid'],
+                                          colorscale="deep",
+                                          zmin=geo_woningdichtheid_2019_merge['Woningdichtheid'].min(),
+                                          zmax=geo_woningdichtheid_2019_merge['Woningdichtheid'].max(),
+                                          marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'cadetblue',
+                                          featureidkey="properties.statnaam",
+                                          colorbar={'title':'Woningdichtheid<br>(aantal woningen<br>per km²)'}
+                                         ))
 
-        fig_wd.update_layout(mapbox_style="carto-positron",
-                          mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
+          fig_wd.update_layout(mapbox_style="carto-positron",
+                            mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
-        fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
-                          title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente</b>',
-                          title_x = 0.5,
-                          title_y = 0.97,
-                          font_family = "Calibri Light",
-                          title_font_size = 18)
+          fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
+                            title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente</b>',
+                            title_x = 0.5,
+                            title_y = 0.97,
+                            font_family = "Calibri Light",
+                            title_font_size = 18)
 
-        # Buttons maken
-        buttons = [{'label': 'Alle',
-                    'method': 'relayout', 
-                    'args': [{'mapbox.center.lat': 52.0893191,
-                              'mapbox.center.lon': 5.1101691,
-                              'mapbox.zoom': 5.5}]},
-                   {'label': 'Den Haag, Leiden en Delft', 
-                    'method': 'relayout', 
-                    'args': [{'mapbox.center.lat': 52.080476,
-                              'mapbox.center.lon': 4.373835,
-                              'mapbox.zoom': 9.5}]},
-                   {'label': 'Amsterdam en Haarlem', 
-                    'method': 'relayout', 
-                    'args': [{'mapbox.center.lat': 52.361216,
-                              'mapbox.center.lon': 4.825168,
-                              'mapbox.zoom': 10}]}]
+          # Buttons maken
+          buttons = [{'label': 'Alle',
+                      'method': 'relayout', 
+                      'args': [{'mapbox.center.lat': 52.0893191,
+                                'mapbox.center.lon': 5.1101691,
+                                'mapbox.zoom': 5.5}]},
+                     {'label': 'Den Haag, Leiden en Delft', 
+                      'method': 'relayout', 
+                      'args': [{'mapbox.center.lat': 52.080476,
+                                'mapbox.center.lon': 4.373835,
+                                'mapbox.zoom': 9.5}]},
+                     {'label': 'Amsterdam en Haarlem', 
+                      'method': 'relayout', 
+                      'args': [{'mapbox.center.lat': 52.361216,
+                                'mapbox.center.lon': 4.825168,
+                                'mapbox.zoom': 10}]}]
 
-        # Buttons toevoegen
-        fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
+          # Buttons toevoegen
+          fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
+  
+          # Tekst voor button en legenda toevoegen
+          fig_wd.update_layout(annotations=[dict(text="Gemeenten", font_size=15, x=-0.20, y=1, xref="paper", yref="paper",
+                                              align="left", showarrow=False)])
 
-        # Tekst voor button en legenda toevoegen
-        fig_wd.update_layout(annotations=[dict(text="Gemeenten", font_size=15, x=-0.20, y=1, xref="paper", yref="paper",
-                                            align="left", showarrow=False)])
-
-        st.plotly_chart(fig_wd, use_container_width=True)
+          st.plotly_chart(fig_wd, use_container_width=True)
         
-    with col2:
-        st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
-        top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
-        top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
-        top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
-        top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
-        st.table(top5_woningdichtheid_2019)
+      with col2:
+          st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
+          top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
+          top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
+          top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
+          top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
+          st.table(top5_woningdichtheid_2019)
     
-    st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
-    green_block("Hier komt informatie")
+      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
+      green_block("Hier komt informatie")
+
+      boxplot_wd = go.Figure()
+
+      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                  name='2017',
+                                  fillcolor='rgb(227,243,190)',
+                                  marker_color='rgb(124,177,88)',
+                                  marker_size=4,
+                                  whiskerwidth=0.3,
+                                  boxpoints='all',
+                                  jitter=0.7,
+                                  pointpos=2
+                                  ))
+
+      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                  name='2018',
+                                  fillcolor='rgb(197,224,228)',
+                                  marker_color='rgb(70,135,156)',
+                                  marker_size=4,
+                                  whiskerwidth=0.3,
+                                  boxpoints='all',
+                                  jitter=0.7,
+                                  pointpos=2
+                                  ))
+
+      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                  name='2019',
+                                  fillcolor='rgb(177,190,214)',
+                                  marker_color='rgb(59,51,95)',
+                                  marker_size=4,
+                                  whiskerwidth=0.3,
+                                  boxpoints='all',
+                                  jitter=0.7,
+                                  pointpos=2
+                                  ))
+
+      boxplot_wd.update_traces(width=0.4)
+
+      boxplot_wd.update_layout(title_text="Woningdichtheid (aantal woningen per km²) per gemeente per jaar",
+                               plot_bgcolor='whitesmoke',
+                               yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                               xaxis_title="Jaar",
+                               legend_title_text='Jaar',
+                               font_family = "Calibri Light",
+                               yaxis_title_font_size = 18,
+                               xaxis_title_font_size = 18,
+                               legend_title_font_size = 16,
+                               title_font_size = 22,
+                               width=900,
+                               height=600
+                              )
+      st.plotly_chart(boxplot_wd)
