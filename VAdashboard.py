@@ -135,7 +135,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_totaal)
             
-    if radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
+    elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         col4, col5, col6 = st.columns(3)
 
         with col4:
@@ -221,7 +221,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_ext)
     
-    if radio_co2_type == 'CO₂-uitstoot woningen':    
+    elif radio_co2_type == 'CO₂-uitstoot woningen':    
         col7, col8, col9 = st.columns(3)
 
         with col7:
