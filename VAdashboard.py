@@ -14,7 +14,7 @@ import plotly.express as px
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
 def header(tekst):
-     st.markdown(f'<p style="background-color:#e3f3be;color:#262730;border-radius:2%;border-width:1px;display:block">{tekst}</p>', unsafe_allow_html=True)
+     st.markdown(f'<p style="background-color:#e3f3be;color:#262730;border-radius:2%;border-width:1px;display:block;margin-block-start:1em;margin-block-end:1em;margin-inline-start:0px;margin-inline-end:0px;">{tekst}</p>', unsafe_allow_html=True)
 
 st.markdown(
     """
