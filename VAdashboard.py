@@ -153,6 +153,7 @@ if sidebar_page == 'CO₂-uitstoot':
             
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
+        st.markdown("")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -220,6 +221,7 @@ if sidebar_page == 'CO₂-uitstoot':
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
+        st.markdown("")
         
         col3, col4 = st.columns([2,1])
 
@@ -305,6 +307,7 @@ if sidebar_page == 'CO₂-uitstoot':
          
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
+        st.markdown("")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -372,6 +375,7 @@ if sidebar_page == 'CO₂-uitstoot':
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
+        st.markdown("")
         
         col5, col6 = st.columns([2,1])
 
@@ -457,6 +461,7 @@ if sidebar_page == 'CO₂-uitstoot':
             
         st.markdown("<h3 style='text-align: center; '>Verdeling CO₂-uitstoot woningen</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
+        st.markdown("")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -526,6 +531,7 @@ if sidebar_page == 'Woningdichtheid':
      st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
      st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
      green_block("Hier komt informatie")
+     st.markdown("")
     
      # Inladen data woningdichtheid
      woningdichtheid = pd.read_csv('woningdichtheid.csv')
@@ -595,6 +601,7 @@ if sidebar_page == 'Woningdichtheid':
     
      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
      green_block("Hier komt informatie")
+     st.markdown("")
 
      boxplot_wd = go.Figure()
 
