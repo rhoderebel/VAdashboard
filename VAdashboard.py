@@ -27,8 +27,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding']) == 'CO₂-uitstoot':
-    if st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen']) == 'Totale CO₂-uitstoot':
+sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding'])
+radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
+
+if sidebar_page == 'CO₂-uitstoot':
+    if radio_co2_type == 'Totale CO₂-uitstoot':
         col1, col2, col3 = st.columns(3)
         with col1:
 
@@ -132,7 +135,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
             st.table(top5_totaal)
             
-    if st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen']) == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
+    if radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         col4, col5, col6 = st.columns(3)
 
         with col4:
@@ -218,7 +221,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
             st.table(top5_ext)
     
-    if st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen']) == 'CO₂-uitstoot woningen':    
+    if radio_co2_type == 'CO₂-uitstoot woningen':    
         col7, col8, col9 = st.columns(3)
 
         with col7:
