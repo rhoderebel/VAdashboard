@@ -526,7 +526,7 @@ if sidebar_page == 'Woningdichtheid':
      st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
      green_block("Hier komt informatie")
     
-    # Inladen data woningdichtheid
+     # Inladen data woningdichtheid
      woningdichtheid = pd.read_csv('woningdichtheid.csv')
      geo_woningdichtheid_2019_merge = pd.read_csv('geo_woningdichtheid_2019_merge.csv')
     
@@ -584,65 +584,65 @@ if sidebar_page == 'Woningdichtheid':
 
           st.plotly_chart(fig_wd, use_container_width=True)
         
-      with col2:
-               st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
-               top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
-               top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
-               top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
-               top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
-               st.table(top5_woningdichtheid_2019)
+     with col2:
+          st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
+          top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
+          top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
+          top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
+          top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
+          st.table(top5_woningdichtheid_2019)
     
-      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
-      green_block("Hier komt informatie")
+     st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
+     green_block("Hier komt informatie")
 
-      boxplot_wd = go.Figure()
+     boxplot_wd = go.Figure()
 
-      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
-                                  name='2017',
-                                  fillcolor='rgb(227,243,190)',
-                                  marker_color='rgb(124,177,88)',
-                                  marker_size=4,
-                                  whiskerwidth=0.3,
-                                  boxpoints='all',
-                                  jitter=0.7,
-                                  pointpos=2
-                                  ))
+     boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                 name='2017',
+                                 fillcolor='rgb(227,243,190)',
+                                 marker_color='rgb(124,177,88)',
+                                 marker_size=4,
+                                 whiskerwidth=0.3,
+                                 boxpoints='all',
+                                 jitter=0.7,
+                                 pointpos=2
+                                 ))
 
-      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
-                                  name='2018',
-                                  fillcolor='rgb(197,224,228)',
-                                  marker_color='rgb(70,135,156)',
-                                  marker_size=4,
-                                  whiskerwidth=0.3,
-                                  boxpoints='all',
-                                  jitter=0.7,
-                                  pointpos=2
-                                  ))
+     boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                 name='2018',
+                                 fillcolor='rgb(197,224,228)',
+                                 marker_color='rgb(70,135,156)',
+                                 marker_size=4,
+                                 whiskerwidth=0.3,
+                                 boxpoints='all',
+                                 jitter=0.7,
+                                 pointpos=2
+                                 ))
 
-      boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
-                                  name='2019',
-                                  fillcolor='rgb(177,190,214)',
-                                  marker_color='rgb(59,51,95)',
-                                  marker_size=4,
-                                  whiskerwidth=0.3,
-                                  boxpoints='all',
-                                  jitter=0.7,
-                                  pointpos=2
-                                  ))
+     boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                 name='2019',
+                                 fillcolor='rgb(177,190,214)',
+                                 marker_color='rgb(59,51,95)',
+                                 marker_size=4,
+                                 whiskerwidth=0.3,
+                                 boxpoints='all',
+                                 jitter=0.7,
+                                 pointpos=2
+                                 ))
 
-      boxplot_wd.update_traces(width=0.4)
+     boxplot_wd.update_traces(width=0.4)
 
-      boxplot_wd.update_layout(title_text="Woningdichtheid (aantal woningen per km²) per gemeente per jaar",
-                               plot_bgcolor='whitesmoke',
-                               yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
-                               xaxis_title="Jaar",
-                               legend_title_text='Jaar',
-                               font_family = "Calibri Light",
-                               yaxis_title_font_size = 18,
-                               xaxis_title_font_size = 18,
-                               legend_title_font_size = 16,
-                               title_font_size = 22,
-                               width=900,
-                               height=600
-                              )
-      st.plotly_chart(boxplot_wd)
+     boxplot_wd.update_layout(title_text="Woningdichtheid (aantal woningen per km²) per gemeente per jaar",
+                              plot_bgcolor='whitesmoke',
+                              yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                              xaxis_title="Jaar",
+                              legend_title_text='Jaar',
+                              font_family = "Calibri Light",
+                              yaxis_title_font_size = 18,
+                              xaxis_title_font_size = 18,
+                              legend_title_font_size = 16,
+                              title_font_size = 22,
+                              width=900,
+                              height=600
+                             )
+     st.plotly_chart(boxplot_wd)
