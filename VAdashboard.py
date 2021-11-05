@@ -29,9 +29,11 @@ st.markdown(
 )
 
 sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding'])
-radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
 
 if sidebar_page == 'CO₂-uitstoot':
+    st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
+    
+    radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
     
     geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
     geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
