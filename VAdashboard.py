@@ -294,7 +294,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_ext)
          
-        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
@@ -445,4 +445,70 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_won = top5_won[['2017', '2018', '2019']]
 
             st.table(top5_won)
+            
+        st.markdown("<h3 style='text-align: center; '>Verdeling CO₂-uitstoot woningen</h3>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
+        
+        radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
+        
+        col3a, col3b = st.columns(2)
+        with col3a:
+            st.markdown('**Uitschieters  CO₂-uitstoot woningen (> 300.000 ton)**')
+            
+            outliers_won_2017 = (histdata[(histdata['co2_woningen'] >= 300000) & 
+                                 (histdata['Jaar'] == 2017)]
+                        .sort_values(by = 'co2_woningen', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            outliers_won_2018 = (histdata[(histdata['co2_woningen'] >= 300000) & 
+                                 (histdata['Jaar'] == 2018)]
+                        .sort_values(by = 'co2_woningen', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            outliers_won_2019 = (histdata[(histdata['co2_woningen'] >= 300000) & 
+                                 (histdata['Jaar'] == 2019)]
+                        .sort_values(by = 'co2_woningen', ascending = False)['Gemeenten']
+                        .reset_index(drop = True))
+            
+            outliers_won = pd.DataFrame({'2017': outliers_won_2017, '2018': outliers_won_2018, '2019': outliers_won_2019})
+            outliers_won.index += 1
+            outliers_won.fillna('-', inplace = True)
+
+            st.table(outliers_ext)
+
+        with col3b:
+            if radio_zoom_hist == 'Volledig':
+                fig = px.histogram(histdata, x="co2_woningen", color = 'Jaar', nbins = 400,
+                  color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+
+                fig.update_layout(
+                    title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b>',
+                    xaxis_title_text='CO₂-uitstoot (in ton)',
+                    yaxis_title_text='Frequentie (aantal gemeenten)',
+                    font_family = "Calibri Light",
+                    title_font_size = 22,
+                    xaxis_title_font_size = 18,
+                    yaxis_title_font_size = 18,
+                    legend_title_font_size = 16,
+                    plot_bgcolor='#d8dcdc'
+                )
+
+                st.plotly_chart(fig, use_container_width=True)                
+                                
+            elif radio_zoom_hist == 'Zonder uitschieters':
+                fig = px.histogram(histdata, x="co2_woningen", color = 'Jaar', nbins = 400,
+                  color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+
+                fig.update_layout(
+                    title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b> (ingezoomd)',
+                    xaxis_title_text='CO₂-uitstoot (in ton)',
+                    yaxis_title_text='Frequentie (aantal gemeenten)',
+                    font_family = "Calibri Light",
+                    title_font_size = 22,
+                    xaxis_title_font_size = 18,
+                    yaxis_title_font_size = 18,
+                    legend_title_font_size = 16,
+                    plot_bgcolor='#d8dcdc',
+                    xaxis_range = [0, 300000]
+                )
+
+                st.plotly_chart(fig, use_container_width=True)
 
