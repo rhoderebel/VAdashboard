@@ -27,7 +27,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Dataset, hulpbronnen en bronvermelding']) == 'CO₂-uitstoot':
+if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding']) == 'CO₂-uitstoot':
     col1, col2, col3 = st.columns(3)
     with col1:
 
