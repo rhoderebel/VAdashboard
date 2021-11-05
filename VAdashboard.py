@@ -642,7 +642,7 @@ if sidebar_page == 'Woningdichtheid':
      green_block("Hier komt informatie")
      st.markdown("")
      
-     radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters])
+     radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters'])
      
      if radio_boxplot == 'Met puntenwolk':
 
