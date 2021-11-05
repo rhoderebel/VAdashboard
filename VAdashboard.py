@@ -110,7 +110,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         top5_totaal[["2017", "2018", "2019"]] = top5_totaal[["2017", "2018", "2019"]].astype(int)
         top5_totaal.index = top5_totaal['Gemeenten']
         top5_totaal = top5_totaal[['2017', '2018', '2019']]
-        st.dataframe(top5_totaal)
+        st.dataframe(top5_totaal, width = 300)
 
     fig = go.Figure()
 
