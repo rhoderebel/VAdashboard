@@ -707,7 +707,6 @@ if sidebar_page == 'Woningdichtheid':
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
-                                      jitter=0.7,
                                       pointpos=2
                                       ))
 
