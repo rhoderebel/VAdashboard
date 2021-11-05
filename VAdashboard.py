@@ -106,10 +106,10 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
             v = False
 
         fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
-                                          z = k['totaal_co2'],
+                                          z = k['totaal_co2_ext_weg'],
                                           colorscale='Oranges',
-                                          zmin=k['totaal_co2'].min(),
-                                          zmax=k['totaal_co2'].max(),
+                                          zmin=k['totaal_co2_ext_weg'].min(),
+                                          zmax=k['totaal_co2_ext_weg'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
                                           name = i, visible = v,
                                           featureidkey="properties.statnaam",
@@ -149,7 +149,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
     # Zet de margins
     fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                      title = 'Totaal bekende CO₂-uitstoot per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)',
+                      title = 'Totaal bekende CO₂-uitstoot exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
                       title_x = 0.5,
                       title_y = 0.97,
                       font_family = "Calibri Light",
@@ -168,10 +168,10 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
             v = False
 
         fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
-                                          z = k['totaal_co2'],
+                                          z = k['co2_woningen'],
                                           colorscale='Oranges',
-                                          zmin=k['totaal_co2'].min(),
-                                          zmax=k['totaal_co2'].max(),
+                                          zmin=k['co2_woningen'].min(),
+                                          zmax=k['co2_woningen'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
                                           name = i, visible = v,
                                           featureidkey="properties.statnaam",
@@ -211,7 +211,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
     # Zet de margins
     fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                      title = 'Totaal bekende CO₂-uitstoot per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)',
+                      title = 'CO₂-uitstoot woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)',
                       title_x = 0.5,
                       title_y = 0.97,
                       font_family = "Calibri Light",
