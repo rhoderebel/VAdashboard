@@ -118,7 +118,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               font_family = "Calibri Light",
                               title_font_size = 18)
 
-            st.plotly_chart(fig) # Laat de plot zien
+            st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
             
         with col2:
             st.markdown("")
@@ -207,7 +207,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               font_family = "Calibri Light",
                               title_font_size = 18)
 
-            st.plotly_chart(fig) # Laat de plot zien
+            st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
         with col5:
             st.markdown("")
@@ -296,7 +296,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               font_family = "Calibri Light",
                               title_font_size = 18)
 
-            st.plotly_chart(fig) # Laat de plot zien
+            st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
         with col8:
             st.markdown("")
