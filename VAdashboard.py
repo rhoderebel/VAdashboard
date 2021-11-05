@@ -112,7 +112,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                              title = 'Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)',
+                              title = '<b>Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)</b>',
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "Calibri Light",
@@ -198,7 +198,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                              title = 'Totaal bekende CO₂-uitstoot (in ton) exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
+                              title = '<b>Totaal bekende CO₂-uitstoot (in ton) exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente</b>',
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "Calibri Light",
@@ -284,7 +284,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                              title = 'CO₂-uitstoot (in ton) woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)',
+                              title = '<b>CO₂-uitstoot (in ton) woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)</b>',
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "Calibri Light",
