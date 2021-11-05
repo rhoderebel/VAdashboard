@@ -55,7 +55,7 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot</h1>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([2,1])
         with col1:
 
             fig = go.Figure()
