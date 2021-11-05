@@ -9,6 +9,7 @@ import folium
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
+import plotly.express as px
 
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
@@ -144,7 +145,6 @@ if sidebar_page == 'CO₂-uitstoot':
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
-
         col1a, col1b = st.columns([1,2])
         with col1a:
             outliers_totaal_2017 = (histdata[(histdata['totaal_co2'] >= 1500000) & 
@@ -168,8 +168,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
         with col1b:
             if radio_zoom_hist == 'Volledig':
-                fig = px.histogram(histdata, x="totaal_co2", color = 'Jaar', nbins = 400,
-                                  color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+                fig = px.histogram(histdata, x="totaal_co2", color = 'Jaar', nbins = 400, color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
