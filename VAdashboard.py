@@ -751,7 +751,7 @@ if sidebar_page == 'Woningdichtheid':
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
-                                      points = 'False'
+                                      boxpoints = False
                                       ))
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
@@ -760,7 +760,7 @@ if sidebar_page == 'Woningdichtheid':
                                       marker_color='rgb(70,135,156)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
-                                      points = 'False'
+                                      boxpoints = False
                                       ))
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
@@ -769,7 +769,7 @@ if sidebar_page == 'Woningdichtheid':
                                       marker_color='rgb(59,51,95)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
-                                      points = 'False'
+                                      boxpoints = False
                                       ))
 
           boxplot_wd.update_traces(width=0.4)
