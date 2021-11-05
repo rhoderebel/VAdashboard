@@ -102,7 +102,7 @@ if sidebar_page == 'CO₂-uitstoot':
             year_start = 2017
             for i in range(len(fig.data)):
                 step = dict(
-                    method="update",
+                    method="animate",
                     args=[{"visible": [False] * len(fig.data)}],  # layout attribute
                 )
                 step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
