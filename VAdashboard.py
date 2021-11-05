@@ -68,9 +68,9 @@ if sidebar_page == 'CO₂-uitstoot':
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
         header('''  
-               Hier komt informatie  
-                 
-               ''')
+        Hier komt informatie  
+          
+          ''')
         
         col1, col2 = st.columns([2,1])
         with col1:
