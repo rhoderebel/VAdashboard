@@ -707,7 +707,6 @@ if sidebar_page == 'Woningdichtheid':
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
-                                      pointpos=2
                                       ))
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
