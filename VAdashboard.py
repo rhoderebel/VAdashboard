@@ -130,7 +130,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         top5_totaal = top5_totaal[['2017', '2018', '2019']]
         
         top5_totaal = top5_totaal.style.set_properties(**{
-            'background-color': 'grey',
+            'background-color': '#fff7e6',
             'font-size': '20pt',
         })
         st.dataframe(top5_totaal)
