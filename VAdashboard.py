@@ -70,10 +70,10 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['totaal_co2'],
-                                                  colorscale='Oranges',
+                                                  colorscale='sunsetdark',
                                                   zmin=k['totaal_co2'].min(),
                                                   zmax=k['totaal_co2'].max(),
-                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
+                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
                                                   colorbar={"title": 'CO₂-uitstoot (in ton)'}))
@@ -159,10 +159,10 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['totaal_co2_ext_weg'],
-                                                  colorscale='Oranges',
+                                                  colorscale='sunsetdark',
                                                   zmin=k['totaal_co2_ext_weg'].min(),
                                                   zmax=k['totaal_co2_ext_weg'].max(),
-                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
+                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
                                                   colorbar={"title": 'CO₂-uitstoot (in ton)'}))
@@ -248,10 +248,10 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['co2_woningen'],
-                                                  colorscale='Oranges',
+                                                  colorscale='sunsetdark',
                                                   zmin=k['co2_woningen'].min(),
                                                   zmax=k['co2_woningen'].max(),
-                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'orange',
+                                                  marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
                                                   colorbar={"title": 'CO₂-uitstoot (in ton)'}))
