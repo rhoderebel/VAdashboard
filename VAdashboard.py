@@ -11,6 +11,9 @@ import plotly.graph_objects as go
 import streamlit as st
 import plotly.express as px
 
+####################################################################################################################################################################
+####################################################################################################################################################################
+
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
 def green_block(tekst):
@@ -33,6 +36,8 @@ st.markdown(
 
 sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding'])
 
+####################################################################################################################################################################
+####################################################################################################################################################################
 
 if sidebar_page == 'CO₂-uitstoot':
     st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
@@ -63,7 +68,7 @@ if sidebar_page == 'CO₂-uitstoot':
     # radiobutton   
     radio_co2_type = st.sidebar.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
     
-    
+    ####################################################################################################################################################################
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
@@ -102,7 +107,7 @@ if sidebar_page == 'CO₂-uitstoot':
             year_start = 2017
             for i in range(len(fig.data)):
                 step = dict(
-                    method="animate",
+                    method="update",
                     args=[{"visible": [False] * len(fig.data)}],  # layout attribute
                 )
                 step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
@@ -219,7 +224,9 @@ if sidebar_page == 'CO₂-uitstoot':
                 )
 
                 st.plotly_chart(fig, use_container_width=True)
-            
+
+    ####################################################################################################################################################################                
+
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
@@ -376,6 +383,8 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 st.plotly_chart(fig, use_container_width=True)
     
+    ####################################################################################################################################################################
+
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
@@ -531,8 +540,10 @@ if sidebar_page == 'CO₂-uitstoot':
                 )
 
                 st.plotly_chart(fig, use_container_width=True)
+                    
+####################################################################################################################################################################     
+####################################################################################################################################################################
 
-#################################################################################################################################################################                
 if sidebar_page == 'Woningdichtheid':
      st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
      st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
@@ -545,6 +556,8 @@ if sidebar_page == 'Woningdichtheid':
     
      with open('geo_woningdichtheid_2019_merge.json', encoding = "ISO-8859-1") as geofile:
           geo_woningdichtheid_2019_merge_json = json.load(geofile) 
+          
+     ####################################################################################################################################################################
     
      col1, col2 = st.columns([2,1])
     
@@ -605,6 +618,8 @@ if sidebar_page == 'Woningdichtheid':
           top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
           st.table(top5_woningdichtheid_2019)
     
+     ####################################################################################################################################################################
+
      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
      green_block("Hier komt informatie")
      st.markdown("")
