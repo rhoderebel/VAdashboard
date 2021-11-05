@@ -55,7 +55,7 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot</h1>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
         with col1:
 
             fig = go.Figure()
@@ -119,9 +119,11 @@ if sidebar_page == 'CO₂-uitstoot':
                               title_font_size = 18)
 
             st.plotly_chart(fig) # Laat de plot zien
-
-
+            
         with col2:
+            st.markdown("")
+
+        with col3:
             st.markdown('**Top 5: totale CO₂-uitstoot (in ton) per gemeente**')
 
             top5_2017_totaal = geo_co2_merge_2017.sort_values(by = 'totaal_co2', ascending = False)[['Gemeenten', 'totaal_co2']].reset_index(drop = True).head(5)
@@ -208,7 +210,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.plotly_chart(fig) # Laat de plot zien
 
         with col5:
-            st.write("")
+            st.markdown("")
 
         with col6:
             st.markdown('**Top 5: totale CO₂-uitstoot (in ton) exclusief auto(snel)snelwegen per gemeente**')
@@ -297,7 +299,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.plotly_chart(fig) # Laat de plot zien
 
         with col8:
-            st.write("")
+            st.markdown("")
 
         with col9:
             st.markdown('**Top 5: CO₂-uitstoot (in ton) woningen per gemeente**')
