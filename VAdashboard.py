@@ -113,7 +113,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.plotly_chart(fig) # Laat de plot zien
         
     with col2:
-        st.markdown(" ")
+        st.markdown("")
     
     with col3:
         st.markdown('**Top 5: totale CO₂-uitstoot per gemeente**')
