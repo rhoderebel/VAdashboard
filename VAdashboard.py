@@ -52,6 +52,8 @@ if sidebar_page == 'CO₂-uitstoot':
     dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
+        st.header('Totale CO₂-uitstoot')
+        
         col1, col2, col3 = st.columns(3)
         with col1:
 
@@ -137,6 +139,8 @@ if sidebar_page == 'CO₂-uitstoot':
             st.table(top5_totaal)
             
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
+        st.header('Totale CO₂-uitstoot exclusief auto(snel)wegen')
+        
         col4, col5, col6 = st.columns(3)
 
         with col4:
@@ -222,7 +226,9 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_ext)
     
-    elif radio_co2_type == 'CO₂-uitstoot woningen':    
+    elif radio_co2_type == 'CO₂-uitstoot woningen':
+        st.header('CO₂-uitstoot woningen')
+        
         col7, col8, col9 = st.columns(3)
 
         with col7:
