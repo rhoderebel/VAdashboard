@@ -118,7 +118,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               font_family = "Calibri Light",
                               title_font_size = 18)
 
-            st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
+            st.plotly_chart(fig, use_container_width=True, use_container_height=True) # Laat de plot zien
 
         with col2:
             st.markdown('**Top 5: totale CO₂-uitstoot (in ton) per gemeente**')
