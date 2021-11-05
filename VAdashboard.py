@@ -13,10 +13,8 @@ import plotly.express as px
 
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
-st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(227, 243, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>Hier komt informatie</p></div></div></div></div></div></div>', unsafe_allow_html=True)
-
-def header(tekst):
-     st.markdown(f'<p style="background-color:#e3f3be;">{tekst}</p>', unsafe_allow_html=True)
+def green_block(tekst):
+     st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(227, 243, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -69,7 +67,7 @@ if sidebar_page == 'CO₂-uitstoot':
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
-        header('''Hier komt informatie''')
+        green_block('''Hier komt informatie''')
         
         col1, col2 = st.columns([2,1])
         with col1:
@@ -153,7 +151,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.table(top5_totaal)
             
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
-        st.info("Hier komt informatie")
+        green_block("Hier komt informatie")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -220,7 +218,7 @@ if sidebar_page == 'CO₂-uitstoot':
             
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
-        st.info("Hier komt informatie")
+        green_block("Hier komt informatie")
         
         col3, col4 = st.columns([2,1])
 
@@ -305,7 +303,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.table(top5_ext)
          
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
-        st.info("Hier komt informatie")
+        green_block("Hier komt informatie")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -372,7 +370,7 @@ if sidebar_page == 'CO₂-uitstoot':
     
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
-        st.info("Hier komt informatie")
+        green_block("Hier komt informatie")
         
         col5, col6 = st.columns([2,1])
 
@@ -457,7 +455,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.table(top5_won)
             
         st.markdown("<h3 style='text-align: center; '>Verdeling CO₂-uitstoot woningen</h3>", unsafe_allow_html=True)
-        st.info("Hier komt informatie")
+        green_block("Hier komt informatie")
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
@@ -526,7 +524,7 @@ if sidebar_page == 'CO₂-uitstoot':
 if sidebar_page == 'Woningdichtheid':
     st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
-    st.info("Hier komt informatie")
+    green_block("Hier komt informatie")
     
     # Inladen data woningdichtheid
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
@@ -595,4 +593,4 @@ if sidebar_page == 'Woningdichtheid':
         st.table(top5_woningdichtheid_2019)
     
     st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
-    st.info("Hier komt informatie")
+    green_block("Hier komt informatie")
