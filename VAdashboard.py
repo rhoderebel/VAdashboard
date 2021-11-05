@@ -30,32 +30,37 @@ st.markdown(
 
 sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding'])
 
+# Inladen data co2
+geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
+geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
+geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
+
+geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
+
+with open('geo_co2_merge_2017.json', encoding = "ISO-8859-1") as geofile:
+    geo_co2_merge_2017_json = json.load(geofile) 
+with open('geo_co2_merge_2018.json', encoding = "ISO-8859-1") as geofile:
+    geo_co2_merge_2018_json = json.load(geofile) 
+with open('geo_co2_merge_2019.json', encoding = "ISO-8859-1") as geofile:
+    geo_co2_merge_2019_json = json.load(geofile) 
+
+geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
+
+dfs_year = pd.DataFrame({'year': [2017, 2018, 2019]})
+dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
+dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
+    
+geo_co2_merge = pd.read_csv('geo_co2_merge.csv')    
+histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
+
+# Inladen data woningdichtheid
+
 if sidebar_page == 'CO₂-uitstoot':
     st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
     
     radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
     
-    geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
-    geo_co2_merge_2018 = pd.read_csv('geo_co2_merge_2018.csv')
-    geo_co2_merge_2019 = pd.read_csv('geo_co2_merge_2019.csv')
-
-    geo_year = [geo_co2_merge_2017, geo_co2_merge_2018, geo_co2_merge_2019]
-
-    with open('geo_co2_merge_2017.json', encoding = "ISO-8859-1") as geofile:
-        geo_co2_merge_2017_json = json.load(geofile) 
-    with open('geo_co2_merge_2018.json', encoding = "ISO-8859-1") as geofile:
-        geo_co2_merge_2018_json = json.load(geofile) 
-    with open('geo_co2_merge_2019.json', encoding = "ISO-8859-1") as geofile:
-        geo_co2_merge_2019_json = json.load(geofile) 
-
-    geojson_year = [geo_co2_merge_2017_json, geo_co2_merge_2018_json, geo_co2_merge_2019_json]
-
-    dfs_year = pd.DataFrame({'year': [2017, 2018, 2019]})
-    dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
-    dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
     
-    geo_co2_merge = pd.read_csv('geo_co2_merge.csv')    
-    histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
