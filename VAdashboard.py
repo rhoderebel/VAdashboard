@@ -519,6 +519,9 @@ if sidebar_page == 'CO₂-uitstoot':
 
 #################################################################################################################################################################                
 if sidebar_page == 'Woningdichtheid':
+    st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
+    st.info("Hier komt informatie")
     
     # Inladen data woningdichtheid
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
@@ -585,3 +588,6 @@ if sidebar_page == 'Woningdichtheid':
         top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
         top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
         st.table(top5_woningdichtheid_2019)
+    
+    st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
+    st.info("Hier komt informatie")
