@@ -546,18 +546,18 @@ if sidebar_page == 'Woningdichtheid':
                           mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
         fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
-                          title = 'Woningdichtheid (aantal woningen per km²) per gemeente',
+                          title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente</b>',
                           title_x = 0.5,
                           title_y = 0.97,
                           font_family = "Calibri Light",
-                          title_font_size = 22)
+                          title_font_size = 18)
 
         # Buttons maken
         buttons = [{'label': 'Alle',
                     'method': 'relayout', 
                     'args': [{'mapbox.center.lat': 52.0893191,
                               'mapbox.center.lon': 5.1101691,
-                              'mapbox.zoom': 6}]},
+                              'mapbox.zoom': 5.5}]},
                    {'label': 'Den Haag, Leiden en Delft', 
                     'method': 'relayout', 
                     'args': [{'mapbox.center.lat': 52.080476,
