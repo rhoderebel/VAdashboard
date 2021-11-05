@@ -642,7 +642,7 @@ if sidebar_page == 'Woningdichtheid':
      green_block("Hier komt informatie")
      st.markdown("")
      
-     radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk'])
+     radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters])
      
      if radio_boxplot == 'Met puntenwolk':
 
@@ -698,7 +698,7 @@ if sidebar_page == 'Woningdichtheid':
                                   )
           st.plotly_chart(boxplot_wd)
           
-     if radio_boxplot == "Zonder puntenwolk":
+     elif radio_boxplot == "Zonder puntenwolk":
           boxplot_wd = go.Figure()
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
@@ -741,3 +741,50 @@ if sidebar_page == 'Woningdichtheid':
                                    height=600
                                   )
           st.plotly_chart(boxplot_wd)
+                                        
+     elif radio_boxplot == 'Zonder uitschieters':
+          boxplot_wd = go.Figure()
+
+          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                      name='2017',
+                                      fillcolor='rgb(227,243,190)',
+                                      marker_color='rgb(124,177,88)',
+                                      marker_size=4,
+                                      whiskerwidth=0.3,
+                                      points = False
+                                      ))
+
+          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                      name='2018',
+                                      fillcolor='rgb(197,224,228)',
+                                      marker_color='rgb(70,135,156)',
+                                      marker_size=4,
+                                      whiskerwidth=0.3,
+                                      points = False
+                                      ))
+
+          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                      name='2019',
+                                      fillcolor='rgb(177,190,214)',
+                                      marker_color='rgb(59,51,95)',
+                                      marker_size=4,
+                                      whiskerwidth=0.3,
+                                      points = False
+                                      ))
+
+          boxplot_wd.update_traces(width=0.4)
+
+          boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
+                                   plot_bgcolor='whitesmoke',
+                                   yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                                   xaxis_title="Jaar",
+                                   legend_title_text='Jaar',
+                                   font_family = "Calibri Light",
+                                   yaxis_title_font_size = 18,
+                                   xaxis_title_font_size = 18,
+                                   legend_title_font_size = 16,
+                                   title_font_size = 22,
+                                   width=900,
+                                   height=600
+                                  )
+          st.plotly_chart(boxplot_wd)                                 
