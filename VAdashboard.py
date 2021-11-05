@@ -147,6 +147,8 @@ if sidebar_page == 'CO₂-uitstoot':
         
         col1a, col1b = st.columns(2)
         with col1a:
+            st.markdown('**Uitschieters totale CO₂-uitstoot (> 1,5 miljoen ton)**')
+            
             outliers_totaal_2017 = (histdata[(histdata['totaal_co2'] >= 1500000) & 
                                  (histdata['Jaar'] == 2017)]
                         .sort_values(by = 'totaal_co2', ascending = False)['Gemeenten']
@@ -162,7 +164,7 @@ if sidebar_page == 'CO₂-uitstoot':
             
             outliers_totaal = pd.DataFrame({'2017': outliers_totaal_2017, '2018': outliers_totaal_2018, '2019': outliers_totaal_2019})
             outliers_totaal.index += 1
-            outliers_totaal.fillna('-')
+            outliers_totaal.fillna('-', inplace = True)
 
             st.table(outliers_totaal)
 
