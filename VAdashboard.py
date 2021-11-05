@@ -52,7 +52,7 @@ if sidebar_page == 'CO₂-uitstoot':
     dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
-        st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
         col1, col2 = st.columns([2,1])
@@ -136,8 +136,11 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_totaal)
             
+        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
+            
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
-        st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
         st.info("Hier komt informatie")
         
         col3, col4 = st.columns([2,1])
@@ -221,6 +224,9 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_ext = top5_ext[['2017', '2018', '2019']]
 
             st.table(top5_ext)
+         
+        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
     
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
