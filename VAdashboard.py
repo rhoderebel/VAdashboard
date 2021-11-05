@@ -12,6 +12,21 @@ import streamlit as st
 
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', layout = 'wide')
 
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+        width: 500px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        width: 500px;
+        margin-left: -500px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid']) == 'CO₂-uitstoot':
     col1, col2, col3 = st.columns(3)
     with col1:
