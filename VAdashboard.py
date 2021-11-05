@@ -116,9 +116,6 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.markdown("")
     
     with col3:
-        st.markdown(""" <style> .font {
-        font-size:20px;} 
-        </style> """, unsafe_allow_html=True)
         st.markdown('**Top 5: totale CO₂-uitstoot per gemeente**')
         
         top5_2017_totaal = geo_co2_merge_2017.sort_values(by = 'totaal_co2', ascending = False)[['Gemeenten', 'totaal_co2']].reset_index(drop = True).head(5)
