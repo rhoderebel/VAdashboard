@@ -61,7 +61,7 @@ if sidebar_page == 'CO₂-uitstoot':
     histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
     
     # radiobutton   
-    radio_co2_type = st.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
+    radio_co2_type = st.sidebar.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
     
     
     
