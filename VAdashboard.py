@@ -579,4 +579,8 @@ if sidebar_page == 'Woningdichtheid':
         st.plotly_chart(fig_wd)
         
     with col2:
-        st.table('moetnog')
+        top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
+        top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
+        top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
+        top5_woningdichtheid_2019 = pd.DataFrame(top5_woningdichtheid_2019['Woningdichtheid'])
+        st.table(top5_woningdichtheid_2019)
