@@ -573,7 +573,7 @@ if sidebar_page == 'Woningdichtheid':
                       'method': 'relayout', 
                       'args': [{'mapbox.center.lat': 52.361216,
                                 'mapbox.center.lon': 4.825168,
-                                'mapbox.zoom': 10}]}]
+                                'mapbox.zoom': 9.5}]}]
 
           # Buttons toevoegen
           fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
