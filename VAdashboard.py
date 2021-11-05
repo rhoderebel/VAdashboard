@@ -750,6 +750,7 @@ if sidebar_page == 'Woningdichtheid':
                                       fillcolor='rgb(227,243,190)',
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
+                                      marker={'opacity':0},
                                       whiskerwidth=0.3
                                       ))
 
@@ -758,6 +759,7 @@ if sidebar_page == 'Woningdichtheid':
                                       fillcolor='rgb(197,224,228)',
                                       marker_color='rgb(70,135,156)',
                                       marker_size=4,
+                                      marker={'opacity':0},
                                       whiskerwidth=0.3
                                       ))
 
@@ -766,6 +768,7 @@ if sidebar_page == 'Woningdichtheid':
                                       fillcolor='rgb(177,190,214)',
                                       marker_color='rgb(59,51,95)',
                                       marker_size=4,
+                                      marker={'opacity':0},
                                       whiskerwidth=0.3
                                       ))
 
@@ -783,5 +786,6 @@ if sidebar_page == 'Woningdichtheid':
                                    title_font_size = 22,
                                    width=900,
                                    height=600
+                                   yaxis_range = [-100, 1200]
                                   )
           st.plotly_chart(boxplot_wd)                                 
