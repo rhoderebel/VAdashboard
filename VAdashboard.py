@@ -472,7 +472,7 @@ if sidebar_page == 'CO₂-uitstoot':
             outliers_won.index += 1
             outliers_won.fillna('-', inplace = True)
 
-            st.table(outliers_ext)
+            st.table(outliers_won)
 
         with col3b:
             if radio_zoom_hist == 'Volledig':
