@@ -612,12 +612,12 @@ if sidebar_page == 'Woningdichtheid':
                       'method': 'relayout', 
                       'args': [{'mapbox.center.lat': 52.080476,
                                 'mapbox.center.lon': 4.373835,
-                                'mapbox.zoom': 9.5}]},
+                                'mapbox.zoom': 9.0}]},
                      {'label': 'Amsterdam en Haarlem', 
                       'method': 'relayout', 
                       'args': [{'mapbox.center.lat': 52.361216,
                                 'mapbox.center.lon': 4.825168,
-                                'mapbox.zoom': 9.5}]}]
+                                'mapbox.zoom': 9.3}]}]
 
           # Buttons toevoegen
           fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
