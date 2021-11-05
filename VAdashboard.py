@@ -14,7 +14,7 @@ import plotly.express as px
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
 def header(tekst):
-     st.markdown(f'<p style="background-color:#e3f3be;color:#262730;border-radius:2%;border-width:1px">{tekst}</p>', unsafe_allow_html=True)
+     st.markdown(f'<p style="background-color:#e3f3be;color:#262730;border-radius:2%;border-width:1px;display:block">{tekst}</p>', unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -67,10 +67,7 @@ if sidebar_page == 'CO₂-uitstoot':
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
-        header('''  
-        Hier komt informatie  
-          
-          ''')
+        header('''Hier komt informatie''')
         
         col1, col2 = st.columns([2,1])
         with col1:
