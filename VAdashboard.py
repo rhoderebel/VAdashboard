@@ -74,6 +74,8 @@ if sidebar_page == 'CO₂-uitstoot':
         with col1:
 
             fig = go.Figure()
+            min_totaal = min(geo_co2_merge_2017['totaal_co2'].min(), geo_co2_merge_2018['totaal_co2'].min(), geo_co2_merge_2019['totaal_co2'].min())
+            max_totaal = min(geo_co2_merge_2017['totaal_co2'].max(), geo_co2_merge_2018['totaal_co2'].max(), geo_co2_merge_2019['totaal_co2'].max())
 
             c = 0
 
@@ -86,8 +88,8 @@ if sidebar_page == 'CO₂-uitstoot':
                 fig.add_trace(go.Choroplethmapbox(geojson=j, locations = k['Gemeenten'],
                                                   z = k['totaal_co2'],
                                                   colorscale='sunsetdark',
-                                                  zmin=k['totaal_co2'].min(),
-                                                  zmax=k['totaal_co2'].max(),
+                                                  zmin=min_totaal,
+                                                  zmax=max_totaal,
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
