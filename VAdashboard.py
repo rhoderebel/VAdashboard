@@ -543,7 +543,7 @@ if sidebar_page == 'Woningdichtheid':
                                        ))
 
         fig_wd.update_layout(mapbox_style="carto-positron",
-                          mapbox_zoom=6, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
+                          mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
         fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
                           title = 'Woningdichtheid (aantal woningen per km²) per gemeente',
@@ -576,9 +576,10 @@ if sidebar_page == 'Woningdichtheid':
         fig_wd.update_layout(annotations=[dict(text="Gemeenten", font_size=15, x=-0.20, y=1, xref="paper", yref="paper",
                                             align="left", showarrow=False)])
 
-        st.plotly_chart(fig_wd)
+        st.plotly_chart(fig_wd, use_container_width=True)
         
     with col2:
+        st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
         top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
         top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
         top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
