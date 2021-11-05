@@ -193,6 +193,7 @@ if sidebar_page == 'CO₂-uitstoot':
                                    color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
                 
                 fig.update_layout(barmode='overlay')
+                fig.update_traces(opacity=0.75)
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
