@@ -53,6 +53,7 @@ if sidebar_page == 'CO₂-uitstoot':
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot</h1>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
         
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -140,6 +141,7 @@ if sidebar_page == 'CO₂-uitstoot':
             
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen</h1>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
         
         col4, col5, col6 = st.columns(3)
 
@@ -228,6 +230,7 @@ if sidebar_page == 'CO₂-uitstoot':
     
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
+        st.info("Hier komt informatie")
         
         col7, col8, col9 = st.columns(3)
 
