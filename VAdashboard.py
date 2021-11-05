@@ -190,7 +190,7 @@ if sidebar_page == 'CO₂-uitstoot':
         with col1b:
             if radio_zoom_hist == 'Volledig':
                 fig = px.histogram(histdata, x="totaal_co2", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['#f29544', '#ae5f58', '#734656'])
+                                   color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
                 
                 fig.update_layout(barmode='overlay')
                 fig.update_traces(opacity=0.75)
