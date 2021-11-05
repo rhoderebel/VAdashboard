@@ -51,6 +51,7 @@ if sidebar_page == 'CO₂-uitstoot':
     dfs_year['geojson_year'] = dfs_year['year'].apply(lambda x: geojson_year[x-2017])
     dfs_year['geo_year'] = dfs_year['year'].apply(lambda x: geo_year[x-2017])
     
+    geo_co2_merge = pd.read_csv('geo_co2_merge.csv')    
     histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
