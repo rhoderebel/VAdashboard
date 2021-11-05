@@ -201,7 +201,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.write("")
     
     with col6:
-        st.markdown('**Top 5: totale CO₂-uitstoot exclusief<br>auto(snel)snelwegen per gemeente**')
+        st.markdown('**Top 5: totale CO₂-uitstoot exclusief auto(snel)snelwegen per gemeente**')
         
         top5_2017_ext = geo_co2_merge_2017.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
         top5_2018_ext = geo_co2_merge_2018.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
