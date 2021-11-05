@@ -13,7 +13,7 @@ import streamlit as st
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', layout = 'wide')
 
 if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid']) == 'CO₂-uitstoot':
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
 
         geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
@@ -96,8 +96,11 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
                           title_font_size = 18)
 
         st.plotly_chart(fig) # Laat de plot zien
-    
+        
     with col2:
+        st.markdown(" ")
+    
+    with col3:
         st.markdown('**Top 5: totale CO₂-uitstoot per gemeente**')
         
         top5_2017_totaal = geo_co2_merge_2017.sort_values(by = 'totaal_co2', ascending = False)[['Gemeenten', 'totaal_co2']].reset_index(drop = True).head(5)
