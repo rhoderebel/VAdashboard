@@ -78,7 +78,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
     # Update de layout van de kaart
     fig.update_layout(mapbox_style="carto-positron",
-                      mapbox_zoom=5.8, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
+                      mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
     # Edit slider labels
     fig['layout']['sliders'][0]['currentvalue']['prefix']='Jaar: '
