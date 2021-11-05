@@ -30,7 +30,6 @@ st.markdown(
 
 sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid', 'Statistische analyse', 'Datasets en bronvermelding'])
 
-# Inladen data woningdichtheid
 
 if sidebar_page == 'CO₂-uitstoot':
     st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
@@ -518,3 +517,11 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 st.plotly_chart(fig, use_container_width=True)
 
+if sidebar_page == 'Woningdichtheid':
+    
+    # Inladen data woningdichtheid
+    woningdichtheid = pd.read_csv('woningdichtheid.csv')
+    geo_woningdichtheid_2019_merge = pd.read_csv('geo_woningdichtheid_2019_merge.csv')
+    
+    with open('geo_woningdichtheid_2019_merge.json', encoding = "ISO-8859-1") as geofile:
+        geo_woningdichtheid_2019_merge_json = json.load(geofile) 
