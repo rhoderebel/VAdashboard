@@ -104,7 +104,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
         # Zet de margins
         fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                          title = 'Totaal bekende CO₂-uitstoot per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)',
+                          title = 'Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)',
                           title_x = 0.5,
                           title_y = 0.97,
                           font_family = "Calibri Light",
@@ -116,7 +116,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.markdown("")
     
     with col3:
-        st.markdown('**Top 5: totale CO₂-uitstoot per gemeente**')
+        st.markdown('**Top 5: totale CO₂-uitstoot (in ton) per gemeente**')
         
         top5_2017_totaal = geo_co2_merge_2017.sort_values(by = 'totaal_co2', ascending = False)[['Gemeenten', 'totaal_co2']].reset_index(drop = True).head(5)
         top5_2018_totaal = geo_co2_merge_2018.sort_values(by = 'totaal_co2', ascending = False)[['Gemeenten', 'totaal_co2']].reset_index(drop = True).head(5)
@@ -189,7 +189,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
         # Zet de margins
         fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                          title = 'Totaal bekende CO₂-uitstoot exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
+                          title = 'Totaal bekende CO₂-uitstoot (in ton) exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente',
                           title_x = 0.5,
                           title_y = 0.97,
                           font_family = "Calibri Light",
@@ -201,7 +201,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
         st.write("")
     
     with col6:
-        st.markdown('**Top 5: totale CO₂-uitstoot exclusief auto(snel)snelwegen per gemeente**')
+        st.markdown('**Top 5: totale CO₂-uitstoot (in ton) exclusief auto(snel)snelwegen per gemeente**')
         
         top5_2017_ext = geo_co2_merge_2017.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
         top5_2018_ext = geo_co2_merge_2018.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
@@ -274,7 +274,7 @@ if st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Woningdichtheid
 
         # Zet de margins
         fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                          title = 'CO₂-uitstoot woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)',
+                          title = 'CO₂-uitstoot (in ton) woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)',
                           title_x = 0.5,
                           title_y = 0.97,
                           font_family = "Calibri Light",
