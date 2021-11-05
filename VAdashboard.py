@@ -589,14 +589,14 @@ if sidebar_page == 'Woningdichtheid':
                                           zmax=geo_woningdichtheid_2019_merge['Woningdichtheid'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'cadetblue',
                                           featureidkey="properties.statnaam",
-                                          colorbar={'title':'Woningdichtheid<br>(aantal woningen<br>per km²)'}
+                                          colorbar={'title':'<b>Woningdichtheid<br>(aantal woningen<br>per km²)</b>'}
                                          ))
 
           fig_wd.update_layout(mapbox_style="carto-positron",
                             mapbox_zoom=5.5, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
 
           fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
-                            title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente</b>',
+                            title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente in 2019</b>',
                             title_x = 0.5,
                             title_y = 0.97,
                             font_family = "Calibri Light",
@@ -629,7 +629,7 @@ if sidebar_page == 'Woningdichtheid':
           st.plotly_chart(fig_wd, use_container_width=True)
         
      with col2:
-          st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente**')
+          st.markdown('**Top 5: Woningdichtheid (aantal woningen per km²) per gemeente in 2019**')
           top5_woningdichtheid_2019 = geo_woningdichtheid_2019_merge.sort_values(by = 'Woningdichtheid', ascending = False)[['Gemeenten', 'Woningdichtheid']].reset_index(drop = True).head(5)
           top5_woningdichtheid_2019['Woningdichtheid'] = top5_woningdichtheid_2019['Woningdichtheid'].astype(int)
           top5_woningdichtheid_2019.index = top5_woningdichtheid_2019['Gemeenten']
@@ -679,7 +679,7 @@ if sidebar_page == 'Woningdichtheid':
 
      boxplot_wd.update_traces(width=0.4)
 
-     boxplot_wd.update_layout(title_text="Woningdichtheid (aantal woningen per km²) per gemeente per jaar",
+     boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
                               plot_bgcolor='whitesmoke',
                               yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
                               xaxis_title="Jaar",
