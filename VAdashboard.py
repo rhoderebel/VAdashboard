@@ -517,6 +517,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 st.plotly_chart(fig, use_container_width=True)
 
+#################################################################################################################################################################                
 if sidebar_page == 'Woningdichtheid':
     
     # Inladen data woningdichtheid
@@ -525,3 +526,51 @@ if sidebar_page == 'Woningdichtheid':
     
     with open('geo_woningdichtheid_2019_merge.json', encoding = "ISO-8859-1") as geofile:
         geo_woningdichtheid_2019_merge_json = json.load(geofile) 
+    
+    # Kaart woningdichtheid
+    fig_wd = go.Figure(go.Choroplethmapbox(geojson=geo_woningdichtheid_2019_merge_json,
+                                    locations=geo_woningdichtheid_2019_merge['Gemeenten'],
+                                    z=geo_woningdichtheid_2019_merge['Woningdichtheid'],
+                                    colorscale="deep",
+                                    zmin=geo_woningdichtheid_2019_merge['Woningdichtheid'].min(),
+                                    zmax=geo_woningdichtheid_2019_merge['Woningdichtheid'].max(),
+                                    marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'cadetblue',
+                                    featureidkey="properties.statnaam",
+                                    colorbar={'title':'Woningdichtheid<br>(aantal woningen<br>per km²)'}
+                                   ))
+
+    fig_wd.update_layout(mapbox_style="carto-positron",
+                      mapbox_zoom=6, mapbox_center = {"lat": 52.0893191, "lon": 5.1101691})
+
+    fig_wd.update_layout(margin={"r":0,"t":50,"l":100,"b":100},
+                      title = 'Woningdichtheid (aantal woningen per km²) per gemeente',
+                      title_x = 0.5,
+                      title_y = 0.97,
+                      font_family = "Calibri Light",
+                      title_font_size = 22)
+
+    # Buttons maken
+    buttons = [{'label': 'Alle',
+                'method': 'relayout', 
+                'args': [{'mapbox.center.lat': 52.0893191,
+                          'mapbox.center.lon': 5.1101691,
+                          'mapbox.zoom': 6}]},
+               {'label': 'Den Haag, Leiden en Delft', 
+                'method': 'relayout', 
+                'args': [{'mapbox.center.lat': 52.080476,
+                          'mapbox.center.lon': 4.373835,
+                          'mapbox.zoom': 9.5}]},
+               {'label': 'Amsterdam en Haarlem', 
+                'method': 'relayout', 
+                'args': [{'mapbox.center.lat': 52.361216,
+                          'mapbox.center.lon': 4.825168,
+                          'mapbox.zoom': 10}]}]
+
+    # Buttons toevoegen
+    fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
+
+    # Tekst voor button en legenda toevoegen
+    fig_wd.update_layout(annotations=[dict(text="Gemeenten", font_size=15, x=-0.20, y=1, xref="paper", yref="paper",
+                                        align="left", showarrow=False)])
+
+    st.plotly_chart(fig_wd)
