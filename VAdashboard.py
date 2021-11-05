@@ -785,7 +785,7 @@ if sidebar_page == 'Woningdichtheid':
                                    legend_title_font_size = 16,
                                    title_font_size = 22,
                                    width=900,
-                                   height=600
+                                   height=600,
                                    yaxis_range = [-100, 1200]
                                   )
           st.plotly_chart(boxplot_wd)                                 
