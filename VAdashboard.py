@@ -806,7 +806,7 @@ if sidebar_page == 'Statistische analyse':
     st.markdown("<h1 style='text-align: center; '>Statistische analyse</h1>", unsafe_allow_html=True)
     
     # Inladen data merged
-    co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge')
+    co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
     
     # Scattermatrix
     scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
