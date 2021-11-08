@@ -858,12 +858,13 @@ if sidebar_page == 'Statistische analyse':
 
         st.plotly_chart(hm, use_container_width=True)
     
-    with col1:
+    col3, col4 = st.columns([1,3])
+    with col3:
         st.markdown("Laat trendlijn zien: ")
         trendline_button = st.button('Ja')
         geentrendline_button = st.button('Nee')
         
-    with col2:
+    with col4:
         if trendline_button:
 
             scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
