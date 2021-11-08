@@ -342,6 +342,9 @@ if sidebar_page == 'CO₂-uitstoot':
         green_block("Hier komt informatie")
         st.markdown("")
         
+        fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
+        st.plotly_chart(fig)
+        
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
         col2a, col2b = st.columns(2)
@@ -410,9 +413,6 @@ if sidebar_page == 'CO₂-uitstoot':
                 )
 
                 st.plotly_chart(fig, use_container_width=True)
-        
-        fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
-        st.plotly_chart(fig)
     
     ####################################################################################################################################################################
 
