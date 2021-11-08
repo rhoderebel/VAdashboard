@@ -27,7 +27,7 @@ st.markdown(
     }
     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
         width: 260px;
-        margin-left: -500px;
+        margin-left: -260px;
     }
     </style>
     """,
