@@ -812,7 +812,7 @@ if sidebar_page == 'Statistische analyse':
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
     
-    col1, col2 = st.columns([2,1])
+    col1, col2 = st.columns(2)
     with col1:
         # Scattermatrix
         scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
