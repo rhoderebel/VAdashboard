@@ -857,11 +857,8 @@ if sidebar_page == 'Statistische analyse':
         st.plotly_chart(hm, use_container_width=True)
         
         st.markdown("Laat trendlijn zien: ")
-        cola, colb = st.columns([.5,1])
-        with cola:
-            trendline_button = st.button('Ja')
-        with colb:
-            geentrendline_button = st.button('Nee')
+        trendline_button = st.button('Ja')
+        geentrendline_button = st.button('Nee')
         
         if trendline_button:
  
