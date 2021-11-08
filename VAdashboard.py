@@ -848,6 +848,7 @@ if sidebar_page == 'Statistische analyse':
                                           colorscale = 'sunsetdark')
 
         hm['layout']['yaxis']['autorange'] = "reversed"
+        hm['layout']['xaxis'].update(side='bottom')
         hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
                           title_font_size = 22,
                           yaxis_tickfont_size = 14,
