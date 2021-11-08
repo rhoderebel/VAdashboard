@@ -154,7 +154,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "sans-serif",
-                              title_font_size = 14)
+                              title_font_size = 16)
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
