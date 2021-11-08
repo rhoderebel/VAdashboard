@@ -812,44 +812,47 @@ if sidebar_page == 'Statistische analyse':
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
     
-    # Scattermatrix
-    scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
-                                                         dict(label='totaal CO₂ excl. weg', values=co2_woningdichtheid_2019_merge['totaal_co2_ext_weg']),
-                                                         dict(label='CO₂ woningen', values=co2_woningdichtheid_2019_merge['co2_woningen']),
-                                                         dict(label='woningdichtheid', values=co2_woningdichtheid_2019_merge['Woningdichtheid'])],
-                                             diagonal_visible=False,
-                                             text=co2_woningdichtheid_2019_merge['Gemeenten'],
-                                             marker=dict(color='rgb(172, 36, 124)',
-                                                         line=dict(width=0.5, color='white')
-                                                         )
-                                             ))
+    col1, col2 = st.columns(2)
+    with col1:
+        # Scattermatrix
+        scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
+                                                             dict(label='totaal CO₂ excl. weg', values=co2_woningdichtheid_2019_merge['totaal_co2_ext_weg']),
+                                                             dict(label='CO₂ woningen', values=co2_woningdichtheid_2019_merge['co2_woningen']),
+                                                             dict(label='woningdichtheid', values=co2_woningdichtheid_2019_merge['Woningdichtheid'])],
+                                                 diagonal_visible=False,
+                                                 text=co2_woningdichtheid_2019_merge['Gemeenten'],
+                                                 marker=dict(color='rgb(172, 36, 124)',
+                                                             line=dict(width=0.5, color='white')
+                                                             )
+                                                 ))
 
-    scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
-                                 width=900, height=800,
-                                 font_family = "Calibri Light",
-                                 title_font_size = 22,
-                                 plot_bgcolor='whitesmoke')
+        scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
+                                     width=900, height=800,
+                                     font_family = "Calibri Light",
+                                     title_font_size = 22,
+                                     plot_bgcolor='whitesmoke')
 
-    st.plotly_chart(scatter_co2_wd)
-
+        st.plotly_chart(scatter_co2_wd)
+    
+    with col2:
     # Correlatiematrix
-    cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
-    cor2 = cor.values.tolist()
-    cor2_text = [[str(round(y, 3)) for y in x] for x in cor2]
+        cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
+        cor2 = cor.values.tolist()
+        cor2_text = [[str(round(y, 3)) for y in x] for x in cor2]
 
-    hm = ff.create_annotated_heatmap(cor2,
-                                      x = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
-                                      y = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
-                                      annotation_text = cor2_text,
-                                      showscale=True,
-                                      colorscale = 'sunsetdark')
+        hm = ff.create_annotated_heatmap(cor2,
+                                          x = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                          y = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                          annotation_text = cor2_text,
+                                          showscale=True,
+                                          colorscale = 'sunsetdark')
 
-    hm['layout']['yaxis']['autorange'] = "reversed"
-    hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
-                      title_font_size = 22,
-                      yaxis_tickfont_size = 14,
-                      xaxis_tickfont_size = 14,
-                      font_family = 'Calibri Light',
-                      title_x = 0.5)
+        hm['layout']['yaxis']['autorange'] = "reversed"
+        hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
+                          title_font_size = 22,
+                          yaxis_tickfont_size = 14,
+                          xaxis_tickfont_size = 14,
+                          font_family = 'Calibri Light',
+                          title_x = 0.5)
 
-    st.plotly_chart(hm)
+        st.plotly_chart(hm)
