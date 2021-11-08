@@ -7,3 +7,4 @@ folium == 0.12.1
 numpy == 1.20.3
 plotly == 5.3.1
 streamlit == 1.0.0
+matplotlib == 3.4.2
