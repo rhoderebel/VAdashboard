@@ -45,6 +45,7 @@ sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Won
 
 if sidebar_page == 'CO₂-uitstoot':
     st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
+    st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
     # Inladen data co2
     geo_co2_merge_2017 = pd.read_csv('geo_co2_merge_2017.csv')
