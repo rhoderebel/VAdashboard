@@ -874,7 +874,7 @@ if sidebar_page == 'Statistische analyse':
 
         col3, col4 = st.columns([1,3])
         with col3:
-            
+            st.markdown("")
 
         with col4:
             if checkbox_trend:
