@@ -812,104 +812,108 @@ if sidebar_page == 'Statistische analyse':
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
      
-    st.sidebar.radio('Analyse: ', ['Correlatie', 'Regressie'])
+    radio_analyse = st.sidebar.radio('Analyse: ', ['Correlatie', 'Regressie'])
+    if radio_analyse == 'Correlatie':
+
+        st.markdown("<h3 style='text-align: center; '>Correlatie</h3>", unsafe_allow_html=True)
+        green_block('''Hier komt informatie''')
+        st.markdown("")
+
+        col1, col2 = st.columns([1.3, 1])
+        with col1:
+            # Scattermatrix
+            scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
+                                                                 dict(label='totaal CO₂ excl. weg', values=co2_woningdichtheid_2019_merge['totaal_co2_ext_weg']),
+                                                                 dict(label='CO₂ woningen', values=co2_woningdichtheid_2019_merge['co2_woningen']),
+                                                                 dict(label='woningdichtheid', values=co2_woningdichtheid_2019_merge['Woningdichtheid'])],
+                                                     diagonal_visible=False,
+                                                     text=co2_woningdichtheid_2019_merge['Gemeenten'],
+                                                     marker=dict(color='rgb(172, 36, 124)',
+                                                                 line=dict(width=0.5, color='white')
+                                                                 )
+                                                     ))
+
+            scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
+                                         height=600,
+                                         font_family = "Calibri Light",
+                                         title_font_size = 22,
+                                         plot_bgcolor='whitesmoke')
+
+            st.plotly_chart(scatter_co2_wd, use_container_width=True)
+
+        with col2:
+        # Correlatiematrix
+            cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
+            cor2 = cor.values.tolist()
+            cor2_text = [[str(round(y, 3)) for y in x] for x in cor2]
+
+            hm = ff.create_annotated_heatmap(cor2,
+                                              x = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                              y = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                              annotation_text = cor2_text,
+                                              showscale=True,
+                                              colorscale = 'sunsetdark')
+
+            hm['layout']['yaxis']['autorange'] = "reversed"
+            hm['layout']['xaxis'].update(side='bottom')
+            hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
+                              title_font_size = 22,
+                              yaxis_tickfont_size = 14,
+                              xaxis_tickfont_size = 14,
+                              font_family = 'Calibri Light',
+                              title_x = 0.5)
+
+            st.plotly_chart(hm, use_container_width=True)
     
-    st.markdown("<h3 style='text-align: center; '>Correlatie</h3>", unsafe_allow_html=True)
-    green_block('''Hier komt informatie''')
-    st.markdown("")
-    
-    col1, col2 = st.columns([1.3, 1])
-    with col1:
-        # Scattermatrix
-        scatter_co2_wd = go.Figure(data=go.Splom(dimensions=[dict(label='totaal CO₂', values=co2_woningdichtheid_2019_merge['totaal_co2']),
-                                                             dict(label='totaal CO₂ excl. weg', values=co2_woningdichtheid_2019_merge['totaal_co2_ext_weg']),
-                                                             dict(label='CO₂ woningen', values=co2_woningdichtheid_2019_merge['co2_woningen']),
-                                                             dict(label='woningdichtheid', values=co2_woningdichtheid_2019_merge['Woningdichtheid'])],
-                                                 diagonal_visible=False,
-                                                 text=co2_woningdichtheid_2019_merge['Gemeenten'],
-                                                 marker=dict(color='rgb(172, 36, 124)',
-                                                             line=dict(width=0.5, color='white')
-                                                             )
-                                                 ))
-
-        scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
-                                     height=600,
-                                     font_family = "Calibri Light",
-                                     title_font_size = 22,
-                                     plot_bgcolor='whitesmoke')
-
-        st.plotly_chart(scatter_co2_wd, use_container_width=True)
-    
-    with col2:
-    # Correlatiematrix
-        cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
-        cor2 = cor.values.tolist()
-        cor2_text = [[str(round(y, 3)) for y in x] for x in cor2]
-
-        hm = ff.create_annotated_heatmap(cor2,
-                                          x = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
-                                          y = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
-                                          annotation_text = cor2_text,
-                                          showscale=True,
-                                          colorscale = 'sunsetdark')
-
-        hm['layout']['yaxis']['autorange'] = "reversed"
-        hm['layout']['xaxis'].update(side='bottom')
-        hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
-                          title_font_size = 22,
-                          yaxis_tickfont_size = 14,
-                          xaxis_tickfont_size = 14,
-                          font_family = 'Calibri Light',
-                          title_x = 0.5)
-
-        st.plotly_chart(hm, use_container_width=True)
+    if radio_analyse == 'Regressie':
+        st.markdown("<h3 style='text-align: center; '>Regressie</h3>", unsafe_allow_html=True)
+        green_block('''Hier komt informatie''')
+        st.markdown("")
         
-    st.markdown("<h3 style='text-align: center; '>Regressie</h3>", unsafe_allow_html=True)
-    green_block('''Hier komt informatie''')
-    st.markdown("")
-    
-    col3, col4 = st.columns([1,3])
-    with col3:
-        checkbox_trend = st.checkbox('Laat trendlijn zien')
-        
-    with col4:
-        if checkbox_trend:
+        checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
 
-            scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
-                                         x='Woningdichtheid',
-                                         y='co2_woningen',
-                                         hover_data=['Gemeenten'],
-                                         trendline="ols",
-                                         color_discrete_sequence=['rgb(172, 36, 124)'],
-                                         trendline_color_override='rgb(196,192,211)')
+        col3, col4 = st.columns([1,3])
+        with col3:
+            
 
-            scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
-                                          xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                          yaxis_title='CO₂-uitstoot (in ton)',
-                                          yaxis_title_font_size = 18,
-                                          xaxis_title_font_size = 18,
-                                          width=800, height=600,
-                                          font_family = "Calibri Light",
-                                          title_font_size = 20,
-                                          plot_bgcolor='whitesmoke')
+        with col4:
+            if checkbox_trend:
 
-            st.plotly_chart(scatter_co2_wd2a, use_container_width=True)
+                scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
+                                             x='Woningdichtheid',
+                                             y='co2_woningen',
+                                             hover_data=['Gemeenten'],
+                                             trendline="ols",
+                                             color_discrete_sequence=['rgb(172, 36, 124)'],
+                                             trendline_color_override='rgb(196,192,211)')
 
-        else:
-            scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
-                                         x='Woningdichtheid',
-                                         y='co2_woningen',
-                                         hover_data=['Gemeenten'],
-                                         color_discrete_sequence=['rgb(172, 36, 124)'])
+                scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+                                              xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                              yaxis_title='CO₂-uitstoot (in ton)',
+                                              yaxis_title_font_size = 18,
+                                              xaxis_title_font_size = 18,
+                                              width=800, height=600,
+                                              font_family = "Calibri Light",
+                                              title_font_size = 20,
+                                              plot_bgcolor='whitesmoke')
 
-            scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
-                                          xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                          yaxis_title='CO₂-uitstoot (in ton)',
-                                          yaxis_title_font_size = 18,
-                                          xaxis_title_font_size = 18,
-                                          width=800, height=600,
-                                          font_family = "Calibri Light",
-                                          title_font_size = 20,
-                                          plot_bgcolor='whitesmoke')
+                st.plotly_chart(scatter_co2_wd2a, use_container_width=True)
 
-            st.plotly_chart(scatter_co2_wd2b, use_container_width=True)
+            else:
+                scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
+                                             x='Woningdichtheid',
+                                             y='co2_woningen',
+                                             hover_data=['Gemeenten'],
+                                             color_discrete_sequence=['rgb(172, 36, 124)'])
+
+                scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+                                              xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                              yaxis_title='CO₂-uitstoot (in ton)',
+                                              yaxis_title_font_size = 18,
+                                              xaxis_title_font_size = 18,
+                                              width=800, height=600,
+                                              font_family = "Calibri Light",
+                                              title_font_size = 20,
+                                              plot_bgcolor='whitesmoke')
+
+                st.plotly_chart(scatter_co2_wd2b, use_container_width=True)
