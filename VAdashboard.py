@@ -831,7 +831,7 @@ if sidebar_page == 'Statistische analyse':
                                      title_font_size = 22,
                                      plot_bgcolor='whitesmoke')
 
-        st.plotly_chart(scatter_co2_wd)
+        st.plotly_chart(scatter_co2_wd, use_container_width=True)
     
     with col2:
     # Correlatiematrix
@@ -854,4 +854,4 @@ if sidebar_page == 'Statistische analyse':
                           font_family = 'Calibri Light',
                           title_x = 0.5)
 
-        st.plotly_chart(hm)
+        st.plotly_chart(hm, use_container_width=True)
