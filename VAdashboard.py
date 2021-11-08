@@ -10,6 +10,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import plotly.express as px
+import matplotlib as plt
 
 ####################################################################################################################################################################
 ####################################################################################################################################################################
@@ -827,3 +828,16 @@ if sidebar_page == 'Statistische analyse':
                                  plot_bgcolor='whitesmoke')
 
     st.plotly_chart(scatter_co2_wd)
+
+    # Correlatiematrix
+    cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
+
+    plt.figure(figsize=(14, 6))
+
+    heatmap = sns.heatmap(cor, vmin=-1, vmax=1, annot=True,
+                          yticklabels=['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                          xticklabels=['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'])
+
+    heatmap.set_title('Correlatiematrix', fontdict={'size':20, 'family': 'Calibri', 'weight': 'light'}, pad=12)
+
+    st.pyplot(plt)
