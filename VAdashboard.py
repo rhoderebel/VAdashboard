@@ -80,6 +80,9 @@ if sidebar_page == 'CO₂-uitstoot':
 
     geo_co2_merge = pd.read_csv('geo_co2_merge.csv')    
     histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
+        
+    fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
+    st.plotly_chart(fig)
     
     # radiobutton   
     radio_co2_type = st.sidebar.radio('Type CO₂-uitstoot: ', ['Totale CO₂-uitstoot', 'Totale CO₂-uitstoot exclusief auto(snel)wegen', 'CO₂-uitstoot woningen'])
@@ -341,9 +344,6 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
         st.markdown("")
-        
-        fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
-        st.plotly_chart(fig)
         
         radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
