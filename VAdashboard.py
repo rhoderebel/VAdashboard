@@ -411,8 +411,8 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 st.plotly_chart(fig, use_container_width=True)
         
-            fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
-            st.plotly_chart(fig)
+        fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
+        st.plotly_chart(fig)
     
     ####################################################################################################################################################################
 
