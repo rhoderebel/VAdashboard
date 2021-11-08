@@ -872,7 +872,7 @@ if sidebar_page == 'Statistische analyse':
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
                                          trendline="ols",
-                                         color_discrete_sequence=['rgb(227,54,65)'],
+                                         color_discrete_sequence=['rgb(172, 36, 124)'],
                                          trendline_color_override='brown')
 
             scatter_co2_wd2a.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
@@ -912,7 +912,7 @@ if sidebar_page == 'Statistische analyse':
                                          x='Woningdichtheid',
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
-                                         color_discrete_sequence=['rgb(227,54,65)'],
+                                         color_discrete_sequence=['rgb(172, 36, 124)'],
                                          trendline_color_override='brown')
 
             scatter_co2_wd2b.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
