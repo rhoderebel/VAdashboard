@@ -856,7 +856,9 @@ if sidebar_page == 'Statistische analyse':
 
         st.plotly_chart(hm, use_container_width=True)
         
-        trendline_button = st.button('Trendlijn')
+        st.markdown("Laat trendlijn zien: ")
+        geentrendline_button = st.button('Nee')
+        trendline_button = st.button('Ja')
         if trendline_button:
  
             scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
@@ -879,7 +881,7 @@ if sidebar_page == 'Statistische analyse':
 
             st.plotly_chart(scatter_co2_wd2a)
         
-        else:
+        elif geentrendline_button:
             scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
                                          x='Woningdichtheid',
                                          y='co2_woningen',
