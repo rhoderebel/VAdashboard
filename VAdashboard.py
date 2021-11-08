@@ -153,7 +153,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               title = '<b>Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)</b>',
                               title_x = 0.5,
                               title_y = 0.97,
-                              font = "Sans Serif",
+                              font_family = "sans serif",
                               title_font_size = 18)
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
