@@ -833,7 +833,7 @@ if sidebar_page == 'Woningdichtheid':
           med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
 
           for i in [2017, 2018, 2019]:
-            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 40,
                                       text = "mediaan: "+str(med_won_jaar.get(i)),
                                       showarrow = False) 
         
