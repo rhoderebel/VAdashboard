@@ -824,7 +824,7 @@ if sidebar_page == 'Statistische analyse':
                                                          )
                                              ))
 
-    scatter_co2_wd.update_layout(title='CO₂-uitstoot en woningdichtheid per gemeente in 2019',
+    scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
                                  width=900, height=800,
                                  font_family = "Calibri Light",
                                  title_font_size = 22,
