@@ -876,7 +876,7 @@ if sidebar_page == 'Statistische analyse':
                                           yaxis_title='CO₂-uitstoot (in ton)',
                                           yaxis_title_font_size = 18,
                                           xaxis_title_font_size = 18,
-                                          width=800, height=600,
+                                          width=800, height=500,
                                           font_family = "Calibri Light",
                                           title_font_size = 20,
                                           plot_bgcolor='whitesmoke')
