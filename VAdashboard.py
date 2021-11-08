@@ -81,7 +81,7 @@ if sidebar_page == 'CO₂-uitstoot':
     geo_co2_merge = pd.read_csv('geo_co2_merge.csv')    
     histdata = geo_co2_merge[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']]
         
-    fig = ff.create_distplot(histdata, group_labels = [2017, 2018, 2019])
+    fig = ff.create_distplot(histdata, [2017, 2018, 2019])
     st.plotly_chart(fig)
     
     # radiobutton   
