@@ -870,6 +870,7 @@ if sidebar_page == 'Statistische analyse':
         green_block('''Hier komt informatie''')
         st.markdown("")
         
+        st.sidebar.markdown('<b>Regressie</b>')
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
 
         col3, col4 = st.columns([1,3])
