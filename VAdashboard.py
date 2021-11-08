@@ -807,10 +807,14 @@ if sidebar_page == 'Woningdichtheid':
 ####################################################################################################################################################################          
           
 if sidebar_page == 'Statistische analyse':
-    st.markdown("<h1 style='text-align: center; '>Statistische analyse</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; '>Statistische analyse: CO₂-uitstoot en woningdichtheid</h1>", unsafe_allow_html=True)
     
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
+    
+    st.markdown("<h3 style='text-align: center; '>Correlatie</h3>", unsafe_allow_html=True)
+    green_block('''Hier komt informatie''')
+    st.markdown("")
     
     col1, col2 = st.columns([1.3, 1])
     with col1:
@@ -857,6 +861,10 @@ if sidebar_page == 'Statistische analyse':
                           title_x = 0.5)
 
         st.plotly_chart(hm, use_container_width=True)
+        
+    st.markdown("<h3 style='text-align: center; '>Regressie</h3>", unsafe_allow_html=True)
+    green_block('''Hier komt informatie''')
+    st.markdown("")
     
     col3, col4 = st.columns([1,3])
     with col3:
