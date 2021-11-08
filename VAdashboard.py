@@ -17,7 +17,7 @@ import plotly.express as px
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 
 def green_block(tekst):
-     st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(210, 236, 190, 0.8); border-color: rgb(124, 177, 88); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
+     st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(210, 236, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
 
 st.markdown(
     """
