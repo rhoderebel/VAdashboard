@@ -827,7 +827,7 @@ if sidebar_page == 'Statistische analyse':
                                                  ))
 
         scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
-                                     width=900, height=800,
+                                     width=900, height=600,
                                      font_family = "Calibri Light",
                                      title_font_size = 22,
                                      plot_bgcolor='whitesmoke')
@@ -876,7 +876,7 @@ if sidebar_page == 'Statistische analyse':
                                           yaxis_title='CO₂-uitstoot (in ton)',
                                           yaxis_title_font_size = 18,
                                           xaxis_title_font_size = 18,
-                                          width=800, height=500,
+                                          width=800, height=600,
                                           font_family = "Calibri Light",
                                           title_font_size = 20,
                                           plot_bgcolor='whitesmoke')
