@@ -715,6 +715,14 @@ if sidebar_page == 'Woningdichtheid':
                                    width=900,
                                    height=600
                                   )
+        
+          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
+
+          for i in [2017, 2018, 2019]:
+            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+                                      text = "mediaan: "+str(med_won_jaar.get(i)),
+                                      showarrow = False)          
+          
           st.plotly_chart(boxplot_wd)
           
      elif radio_boxplot == "Zonder puntenwolk":
@@ -762,6 +770,14 @@ if sidebar_page == 'Woningdichtheid':
                                    width=900,
                                    height=600
                                   )
+        
+          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
+
+          for i in [2017, 2018, 2019]:
+            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+                                      text = "mediaan: "+str(med_won_jaar.get(i)),
+                                      showarrow = False) 
+        
           st.plotly_chart(boxplot_wd)
                                         
      elif radio_boxplot == 'Zonder uitschieters':
@@ -813,6 +829,14 @@ if sidebar_page == 'Woningdichtheid':
                                    height=600,
                                    yaxis_range = [-100, 1200]
                                   )
+        
+          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
+
+          for i in [2017, 2018, 2019]:
+            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+                                      text = "mediaan: "+str(med_won_jaar.get(i)),
+                                      showarrow = False) 
+        
           st.plotly_chart(boxplot_wd)
 
 ####################################################################################################################################################################
