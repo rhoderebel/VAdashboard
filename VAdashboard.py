@@ -815,7 +815,7 @@ if sidebar_page == 'Statistische analyse':
                                                          dict(label='woningdichtheid', values=co2_woningdichtheid_2019_merge['Woningdichtheid'])],
                                              diagonal_visible=False,
                                              text=co2_woningdichtheid_2019_merge['Gemeenten'],
-                                             marker=dict(color='rgb(227,54,65)',
+                                             marker=dict(color='rgb(172, 36, 124)',
                                                          line=dict(width=0.5, color='white')
                                                          )
                                              ))
