@@ -873,7 +873,7 @@ if sidebar_page == 'Statistische analyse':
                                          hover_data=['Gemeenten'],
                                          trendline="ols",
                                          color_discrete_sequence=['rgb(172, 36, 124)'],
-                                         trendline_color_override='brown')
+                                         trendline_color_override='rgb(210,236,190)')
 
             scatter_co2_wd2a.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
                                           xaxis_title='Woningdichtheid (aantal woningen per km²)',
@@ -892,8 +892,7 @@ if sidebar_page == 'Statistische analyse':
                                          x='Woningdichtheid',
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
-                                         color_discrete_sequence=['rgb(227,54,65)'],
-                                         trendline_color_override='brown')
+                                         color_discrete_sequence=['rgb(227,54,65)'])
 
             scatter_co2_wd2b.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
                                           xaxis_title='Woningdichtheid (aantal woningen per km²)',
@@ -912,8 +911,7 @@ if sidebar_page == 'Statistische analyse':
                                          x='Woningdichtheid',
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
-                                         color_discrete_sequence=['rgb(172, 36, 124)'],
-                                         trendline_color_override='brown')
+                                         color_discrete_sequence=['rgb(172, 36, 124)'])
 
             scatter_co2_wd2b.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
                                           xaxis_title='Woningdichtheid (aantal woningen per km²)',
