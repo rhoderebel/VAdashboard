@@ -650,7 +650,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
                                       name='2017',
-                                      fillcolor='rgb(227,243,190)',
+                                      fillcolor='rgb(210,236,190)',
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -661,7 +661,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
                                       name='2018',
-                                      fillcolor='rgb(197,224,228)',
+                                      fillcolor='rgb(171,218,205)',
                                       marker_color='rgb(70,135,156)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -672,7 +672,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
                                       name='2019',
-                                      fillcolor='rgb(177,190,214)',
+                                      fillcolor='rgb(196,192,211)',
                                       marker_color='rgb(59,51,95)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -703,7 +703,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
                                       name='2017',
-                                      fillcolor='rgb(227,243,190)',
+                                      fillcolor='rgb(210,236,190)',
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -711,7 +711,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
                                       name='2018',
-                                      fillcolor='rgb(197,224,228)',
+                                      fillcolor='rgb(171,218,205)',
                                       marker_color='rgb(70,135,156)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -719,7 +719,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
                                       name='2019',
-                                      fillcolor='rgb(177,190,214)',
+                                      fillcolor='rgb(196,192,211)',
                                       marker_color='rgb(59,51,95)',
                                       marker_size=4,
                                       whiskerwidth=0.3,
@@ -747,7 +747,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
                                       name='2017',
-                                      fillcolor='rgb(227,243,190)',
+                                      fillcolor='rgb(210,236,190)',
                                       marker_color='rgb(124,177,88)',
                                       marker_size=4,
                                       marker={'opacity':0},
@@ -756,7 +756,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
                                       name='2018',
-                                      fillcolor='rgb(197,224,228)',
+                                      fillcolor='rgb(171,218,205)',
                                       marker_color='rgb(70,135,156)',
                                       marker_size=4,
                                       marker={'opacity':0},
@@ -765,7 +765,7 @@ if sidebar_page == 'Woningdichtheid':
 
           boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
                                       name='2019',
-                                      fillcolor='rgb(177,190,214)',
+                                      fillcolor='rgb(196,192,211)',
                                       marker_color='rgb(59,51,95)',
                                       marker_size=4,
                                       marker={'opacity':0},
