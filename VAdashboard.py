@@ -856,41 +856,41 @@ if sidebar_page == 'Statistische analyse':
 
         st.plotly_chart(hm, use_container_width=True)
  
-    scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
-                                 x='Woningdichtheid',
-                                 y='co2_woningen',
-                                 hover_data=['Gemeenten'],
-                                 color_discrete_sequence=['rgb(227,54,65)'],
-                                 trendline_color_override='brown')
+        scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
+                                     x='Woningdichtheid',
+                                     y='co2_woningen',
+                                     hover_data=['Gemeenten'],
+                                     color_discrete_sequence=['rgb(227,54,65)'],
+                                     trendline_color_override='brown')
 
-    scatter_co2_wd2a.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
-                                  xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                  yaxis_title='CO₂-uitstoot (in ton)',
-                                  yaxis_title_font_size = 18,
-                                  xaxis_title_font_size = 18,
-                                  width=800, height=600,
-                                  font_family = "Calibri Light",
-                                  title_font_size = 20,
-                                  plot_bgcolor='whitesmoke')
+        scatter_co2_wd2a.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
+                                      xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                      yaxis_title='CO₂-uitstoot (in ton)',
+                                      yaxis_title_font_size = 18,
+                                      xaxis_title_font_size = 18,
+                                      width=800, height=600,
+                                      font_family = "Calibri Light",
+                                      title_font_size = 20,
+                                      plot_bgcolor='whitesmoke')
 
-    st.plotly_chart(scatter_co2_wd2a)
-    
-    scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
-                                 x='Woningdichtheid',
-                                 y='co2_woningen',
-                                 hover_data=['Gemeenten'],
-                                 trendline="ols",
-                                 color_discrete_sequence=['rgb(227,54,65)'],
-                                 trendline_color_override='brown')
+        st.plotly_chart(scatter_co2_wd2a)
 
-    scatter_co2_wd2b.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
-                                  xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                  yaxis_title='CO₂-uitstoot (in ton)',
-                                  yaxis_title_font_size = 18,
-                                  xaxis_title_font_size = 18,
-                                  width=800, height=600,
-                                  font_family = "Calibri Light",
-                                  title_font_size = 20,
-                                  plot_bgcolor='whitesmoke')
+        scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
+                                     x='Woningdichtheid',
+                                     y='co2_woningen',
+                                     hover_data=['Gemeenten'],
+                                     trendline="ols",
+                                     color_discrete_sequence=['rgb(227,54,65)'],
+                                     trendline_color_override='brown')
 
-    st.plotly_chart(scatter_co2_wd2b)    
+        scatter_co2_wd2b.update_layout(title='CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019',
+                                      xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                      yaxis_title='CO₂-uitstoot (in ton)',
+                                      yaxis_title_font_size = 18,
+                                      xaxis_title_font_size = 18,
+                                      width=800, height=600,
+                                      font_family = "Calibri Light",
+                                      title_font_size = 20,
+                                      plot_bgcolor='whitesmoke')
+
+        st.plotly_chart(scatter_co2_wd2b)    
