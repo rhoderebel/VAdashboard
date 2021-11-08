@@ -862,7 +862,8 @@ if sidebar_page == 'Statistische analyse':
         st.markdown("Laat trendlijn zien: ")
         trendline_button = st.button('Ja')
         geentrendline_button = st.button('Nee')
-
+        
+    with col2:
         if trendline_button:
 
             scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
