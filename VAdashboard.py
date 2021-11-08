@@ -870,7 +870,7 @@ if sidebar_page == 'Statistische analyse':
         green_block('''Hier komt informatie''')
         st.markdown("")
         
-        st.sidebar.markdown("""<hr style="height:10px;width:260px;margin-right:0px;margin-left:-240px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+        st.sidebar.markdown("""<hr style="height:10px;width:260px;margin-right:-240px;margin-left:-240px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
 
         col3, col4 = st.columns([1,3])
