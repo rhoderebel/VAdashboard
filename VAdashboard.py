@@ -812,7 +812,7 @@ if sidebar_page == 'Statistische analyse':
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
      
-    st.sidebar.radio(options = ['Correlatie', 'Regressie'])
+    st.sidebar.radio('Analyse: ', ['Correlatie', 'Regressie'])
     
     st.markdown("<h3 style='text-align: center; '>Correlatie</h3>", unsafe_allow_html=True)
     green_block('''Hier komt informatie''')
