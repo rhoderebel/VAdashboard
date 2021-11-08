@@ -833,13 +833,22 @@ if sidebar_page == 'Statistische analyse':
 
     # Correlatiematrix
     cor = co2_woningdichtheid_2019_merge[['totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen', 'Woningdichtheid']].corr()
+    cor2 = cor.values.tolist()
+    cor2_text = [[str(round(y, 3)) for y in x] for x in cor2]
 
-    plt.figure(figsize=(14, 6))
+    hm = ff.create_annotated_heatmap(cor2,
+                                      x = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                      y = ['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
+                                      annotation_text = cor2_text,
+                                      showscale=True,
+                                      colorscale = 'sunsetdark')
 
-    heatmap = sns.heatmap(cor, vmin=-1, vmax=1, annot=True,
-                          yticklabels=['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'],
-                          xticklabels=['totaal CO₂', 'totaal CO₂ excl. weg', 'CO₂ woningen', 'woningdichtheid'])
+    hm['layout']['yaxis']['autorange'] = "reversed"
+    hm.update_layout(title_text = '<b>Correlatie heatmap</b>',
+                      title_font_size = 22,
+                      yaxis_tickfont_size = 14,
+                      xaxis_tickfont_size = 14,
+                      font_family = 'Calibri Light',
+                      title_x = 0.5)
 
-    heatmap.set_title('Correlatiematrix', fontdict={'size':20, 'family': 'Calibri', 'weight': 'light'}, pad=12)
-
-    st.pyplot(plt)
+    st.plotly_chart(hm)
