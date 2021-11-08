@@ -215,7 +215,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -236,7 +236,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b> (ingezoomd)',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -317,7 +317,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               title = '<b>Totaal bekende CO₂-uitstoot (in ton) exclusief<br>CO₂-uitstoot auto(snel)wegen per gemeente</b>',
                               title_x = 0.5,
                               title_y = 0.97,
-                              font_family = "Sans Serif",
+                              font_family = "sans-serif",
                               title_font_size = 18)
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
@@ -379,7 +379,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente</b>',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -400,7 +400,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente</b> (ingezoomd)',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -481,7 +481,7 @@ if sidebar_page == 'CO₂-uitstoot':
                               title = '<b>CO₂-uitstoot (in ton) woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)</b>',
                               title_x = 0.5,
                               title_y = 0.97,
-                              font_family = "Sans Serif",
+                              font_family = "sans-serif",
                               title_font_size = 18)
 
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
@@ -543,7 +543,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b>',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -564,7 +564,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b> (ingezoomd)',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
-                    font_family = "Sans Serif",
+                    font_family = "sans-serif",
                     title_font_size = 20,
                     xaxis_title_font_size = 18,
                     yaxis_title_font_size = 18,
@@ -615,7 +615,7 @@ if sidebar_page == 'Woningdichtheid':
                             title = '<b>Woningdichtheid (aantal woningen per km²) per gemeente in 2019</b>',
                             title_x = 0.5,
                             title_y = 0.97,
-                            font_family = "Sans Serif",
+                            font_family = "sans-serif",
                             title_font_size = 18)
 
           # Buttons maken
@@ -707,7 +707,7 @@ if sidebar_page == 'Woningdichtheid':
                                    yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
                                    xaxis_title="Jaar",
                                    legend_title_text='Jaar',
-                                   font_family = "Sans Serif",
+                                   font_family = "sans-serif",
                                    yaxis_title_font_size = 18,
                                    xaxis_title_font_size = 18,
                                    legend_title_font_size = 16,
@@ -754,7 +754,7 @@ if sidebar_page == 'Woningdichtheid':
                                    yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
                                    xaxis_title="Jaar",
                                    legend_title_text='Jaar',
-                                   font_family = "Sans Serif",
+                                   font_family = "sans-serif",
                                    yaxis_title_font_size = 18,
                                    xaxis_title_font_size = 18,
                                    legend_title_font_size = 16,
@@ -804,7 +804,7 @@ if sidebar_page == 'Woningdichtheid':
                                    yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
                                    xaxis_title="Jaar",
                                    legend_title_text='Jaar',
-                                   font_family = "Sans Serif",
+                                   font_family = "sans-serif",
                                    yaxis_title_font_size = 18,
                                    xaxis_title_font_size = 18,
                                    legend_title_font_size = 16,
@@ -847,7 +847,7 @@ if sidebar_page == 'Statistische analyse':
 
             scatter_co2_wd.update_layout(title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
                                          height=600,
-                                         font_family = "Sans Serif",
+                                         font_family = "sans-serif",
                                          title_font_size = 22,
                                          plot_bgcolor='whitesmoke')
 
@@ -872,7 +872,7 @@ if sidebar_page == 'Statistische analyse':
                               title_font_size = 22,
                               yaxis_tickfont_size = 14,
                               xaxis_tickfont_size = 14,
-                              font_family = 'Sans Serif',
+                              font_family = 'sans-serif',
                               title_x = 0.5)
 
             st.plotly_chart(hm, use_container_width=True)
@@ -906,7 +906,7 @@ if sidebar_page == 'Statistische analyse':
                                               yaxis_title_font_size = 18,
                                               xaxis_title_font_size = 18,
                                               width=800, height=600,
-                                              font_family = "Sans Serif",
+                                              font_family = "sans-serif",
                                               title_font_size = 20,
                                               plot_bgcolor='whitesmoke')
 
@@ -925,7 +925,7 @@ if sidebar_page == 'Statistische analyse':
                                               yaxis_title_font_size = 18,
                                               xaxis_title_font_size = 18,
                                               width=800, height=600,
-                                              font_family = "Sans Serif",
+                                              font_family = "sans-serif",
                                               title_font_size = 20,
                                               plot_bgcolor='whitesmoke')
 
