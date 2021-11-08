@@ -151,7 +151,7 @@ if sidebar_page == 'CO₂-uitstoot':
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
                               title = '<b>Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)</b>',
-                              title_x = 0.5
+                              title_x = 0.5,
                               title_y = 0.97,
                               font_family = "sans-serif",
                               title_font_size = 16)
