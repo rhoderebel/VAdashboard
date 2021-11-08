@@ -860,7 +860,7 @@ if sidebar_page == 'Statistische analyse':
     
     col3, col4 = st.columns([1,3])
     with col3:
-        checkbox_trend = st.checkbox('Laat de trendlijn zien')
+        checkbox_trend = st.checkbox('Laat trendlijn zien')
         
     with col4:
         if checkbox_trend:
