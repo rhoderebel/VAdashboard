@@ -863,6 +863,7 @@ if sidebar_page == 'Statistische analyse':
                                          x='Woningdichtheid',
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
+                                         trendline="ols",
                                          color_discrete_sequence=['rgb(227,54,65)'],
                                          trendline_color_override='brown')
 
@@ -883,7 +884,6 @@ if sidebar_page == 'Statistische analyse':
                                          x='Woningdichtheid',
                                          y='co2_woningen',
                                          hover_data=['Gemeenten'],
-                                         trendline="ols",
                                          color_discrete_sequence=['rgb(227,54,65)'],
                                          trendline_color_override='brown')
 
