@@ -927,7 +927,7 @@ if sidebar_page == 'Statistische analyse':
                                              hover_data=['Gemeenten'],
                                              trendline="ols",
                                              color_discrete_sequence=['rgb(172, 36, 124)'],
-                                             trendline_color_override='rgb(237,106,111)')
+                                             trendline_color_override='rgb(125,29,111)')
 
                 scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
                                               xaxis_title='Woningdichtheid (aantal woningen per km²)',
