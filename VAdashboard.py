@@ -900,6 +900,9 @@ if sidebar_page == 'Statistische analyse':
                               title_x = 0.5)
 
             st.plotly_chart(hm, use_container_width=True)
+        
+            df = pd.DataFrame({'Variabele': ['CO₂-uitstoot', 'Woningdichtheid'], 'Eenheid': ['Ton', 'Aantal woningen per km²']})
+            st.table(df)
     
     if radio_analyse == 'Regressie':
         st.markdown("<h3 style='text-align: center; '>Regressie</h3>", unsafe_allow_html=True)
