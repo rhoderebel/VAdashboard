@@ -963,3 +963,17 @@ if sidebar_page == 'Statistische analyse':
                                           plot_bgcolor='whitesmoke')
 
             st.plotly_chart(scatter_co2_wd2b, use_container_width=True)
+        
+####################################################################################################################################################################
+####################################################################################################################################################################
+
+if sidebar_page == 'Datasets en bronvermelding':
+    st.markdown("<h1 style='text-align: center; '>Datasets en bronvermelding</h1>", unsafe_allow_html=True)
+    st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+        
+    co2 = pd.read_csv('co2.csv')
+    gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
+        
+    st.table(co2.head())
+    st.table(woningdichtheid.head())
+    st.table(gemeentegrenzen.head())
