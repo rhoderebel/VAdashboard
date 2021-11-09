@@ -869,7 +869,7 @@ if sidebar_page == 'Statistische analyse':
                                                                  )
                                                      ))
 
-            scatter_co2_wd.update_layout({"xaxis4":{"tickfont":{"size":10}}},
+            scatter_co2_wd.update_layout({"xaxis4":{"tickfont":{"size":11}}},
                                          title='<b>CO₂-uitstoot en woningdichtheid per gemeente in 2019</b>',
                                          height=700,
                                          font_family = "sans-serif",
