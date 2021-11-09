@@ -972,6 +972,7 @@ if sidebar_page == 'Datasets en bronvermelding':
     st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
     co2 = pd.read_csv('co2.csv')
+    woningdichtheid = pd.read_csv('woningdichtheid.csv')
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
         
     st.table(co2.head())
