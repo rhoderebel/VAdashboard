@@ -916,7 +916,11 @@ if sidebar_page == 'Statistische analyse':
 
         col3, col4 = st.columns([1,3])
         with col3:
-            st.markdown("")
+            X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
+            Y = co2_woningdichtheid_2019_merge['co2_woningen']
+            model = sm.OLS(Y, X).fit()
+            
+            st.table(model.summary())
 
         with col4:
             if checkbox_trend:
