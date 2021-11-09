@@ -209,7 +209,6 @@ if sidebar_page == 'CO₂-uitstoot':
                                    color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
                 fig.update_layout(barmode='group')
-             #   fig.update_traces(opacity=0.6)
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
@@ -231,7 +230,6 @@ if sidebar_page == 'CO₂-uitstoot':
                                    color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
                 fig.update_layout(barmode='group')
-            #    fig.update_traces(opacity=0.6)
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b> (ingezoomd)',
@@ -372,10 +370,9 @@ if sidebar_page == 'CO₂-uitstoot':
         with col2b:
             if radio_zoom_hist == 'Volledig':
                 fig = px.histogram(histdata, x="totaal_co2_ext_weg", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
+                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
-                fig.update_layout(barmode='overlay')
-                fig.update_traces(opacity=0.6)
+                fig.update_layout(barmode='group')
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief<br>auto(snel)wegen per gemeente</b>',
@@ -394,10 +391,9 @@ if sidebar_page == 'CO₂-uitstoot':
                                 
             elif radio_zoom_hist == 'Zonder uitschieters':
                 fig = px.histogram(histdata, x="totaal_co2_ext_weg", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
+                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
-                fig.update_layout(barmode='overlay')
-                fig.update_traces(opacity=0.6)
+                fig.update_layout(barmode='group')
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief<br>auto(snel)wegen per gemeente</b> (ingezoomd)',
@@ -538,10 +534,9 @@ if sidebar_page == 'CO₂-uitstoot':
         with col3b:
             if radio_zoom_hist == 'Volledig':
                 fig = px.histogram(histdata, x="co2_woningen", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
+                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
-                fig.update_layout(barmode='overlay')
-                fig.update_traces(opacity=0.6)
+                fig.update_layout(barmode='group')
 
                 fig.update_layout(
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b>',
@@ -560,10 +555,9 @@ if sidebar_page == 'CO₂-uitstoot':
                                 
             elif radio_zoom_hist == 'Zonder uitschieters':
                 fig = px.histogram(histdata, x="co2_woningen", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
+                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
-                fig.update_layout(barmode='overlay')
-                fig.update_traces(opacity=0.6)
+                fig.update_layout(barmode='group')
 
                 fig.update_layout(
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b> (ingezoomd)',
