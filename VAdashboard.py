@@ -873,7 +873,8 @@ if sidebar_page == 'Statistische analyse':
                                          height=700,
                                          font_family = "sans-serif",
                                          title_font_size = 16,
-                                         plot_bgcolor='whitesmoke')
+                                         plot_bgcolor='whitesmoke',
+                                         {"yaxis3":{"tickangle":-90, "tickfont":{"size":13}}})
 
             st.plotly_chart(scatter_co2_wd, use_container_width=True)
 
