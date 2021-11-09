@@ -220,8 +220,6 @@ if sidebar_page == 'CO₂-uitstoot':
                     xaxis_title_font_size = 14,
                     yaxis_title_font_size = 14,
                     legend_title_font_size = 14,
-                    bargap = 0.2,
-                    bargroupgap = 0.1,
                     plot_bgcolor='#d8dcdc'
                 )
 
