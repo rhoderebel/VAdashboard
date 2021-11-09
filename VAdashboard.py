@@ -931,7 +931,7 @@ if sidebar_page == 'Statistische analyse':
                                          color_discrete_sequence=['rgb(172, 36, 124)'],
                                          trendline_color_override='rgb(125,29,111)')
 
-            scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+            scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot (in ton) woningen en woningdichtheid<br>(aantal woningen per km²) per gemeente in 2019</b>',
                                           xaxis_title='Woningdichtheid (aantal woningen per km²)',
                                           yaxis_title='CO₂-uitstoot (in ton)',
                                           yaxis_title_font_size = 14,
@@ -950,7 +950,7 @@ if sidebar_page == 'Statistische analyse':
                                          hover_data=['Gemeenten'],
                                          color_discrete_sequence=['rgb(172, 36, 124)'])
 
-            scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+            scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot (in ton) woningen en woningdichtheid<br>(aantal woningen per km²) per gemeente in 2019</b>',
                                           xaxis_title='Woningdichtheid (aantal woningen per km²)',
                                           yaxis_title='CO₂-uitstoot (in ton)',
                                           yaxis_title_font_size = 14,
