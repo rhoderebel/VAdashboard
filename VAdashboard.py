@@ -914,7 +914,7 @@ if sidebar_page == 'Statistische analyse':
         st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
 
-        col3, col4 = st.columns([1,3])
+        col3, col4 = st.columns(2)
         with col3:
             X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
             Y = co2_woningdichtheid_2019_merge['co2_woningen']
