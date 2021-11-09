@@ -914,53 +914,50 @@ if sidebar_page == 'Statistische analyse':
         st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
 
-        col3, col4 = st.columns(2)
-        with col3:
-            X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
-            Y = co2_woningdichtheid_2019_merge['co2_woningen']
-            model = sm.OLS(Y, X).fit()
-            
-            st.code(model.summary())
-           
+        with st.expander("Bekijk model samenvatting"):
+        st.code(model.summary())
+        
+        X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
+        Y = co2_woningdichtheid_2019_merge['co2_woningen']
+        model = sm.OLS(Y, X).fit()
+     
+        if checkbox_trend:
 
-        with col4:
-            if checkbox_trend:
+            scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
+                                         x='Woningdichtheid',
+                                         y='co2_woningen',
+                                         hover_data=['Gemeenten'],
+                                         trendline="ols",
+                                         color_discrete_sequence=['rgb(172, 36, 124)'],
+                                         trendline_color_override='rgb(125,29,111)')
 
-                scatter_co2_wd2a = px.scatter(co2_woningdichtheid_2019_merge,
-                                             x='Woningdichtheid',
-                                             y='co2_woningen',
-                                             hover_data=['Gemeenten'],
-                                             trendline="ols",
-                                             color_discrete_sequence=['rgb(172, 36, 124)'],
-                                             trendline_color_override='rgb(125,29,111)')
+            scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+                                          xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                          yaxis_title='CO₂-uitstoot (in ton)',
+                                          yaxis_title_font_size = 14,
+                                          xaxis_title_font_size = 14,
+                                          width=800, height=600,
+                                          font_family = "sans-serif",
+                                          title_font_size = 16,
+                                          plot_bgcolor='whitesmoke')
 
-                scatter_co2_wd2a.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
-                                              xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                              yaxis_title='CO₂-uitstoot (in ton)',
-                                              yaxis_title_font_size = 14,
-                                              xaxis_title_font_size = 14,
-                                              width=800, height=600,
-                                              font_family = "sans-serif",
-                                              title_font_size = 16,
-                                              plot_bgcolor='whitesmoke')
+            st.plotly_chart(scatter_co2_wd2a, use_container_width=True)
 
-                st.plotly_chart(scatter_co2_wd2a, use_container_width=True)
+        else:
+            scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
+                                         x='Woningdichtheid',
+                                         y='co2_woningen',
+                                         hover_data=['Gemeenten'],
+                                         color_discrete_sequence=['rgb(172, 36, 124)'])
 
-            else:
-                scatter_co2_wd2b = px.scatter(co2_woningdichtheid_2019_merge,
-                                             x='Woningdichtheid',
-                                             y='co2_woningen',
-                                             hover_data=['Gemeenten'],
-                                             color_discrete_sequence=['rgb(172, 36, 124)'])
+            scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
+                                          xaxis_title='Woningdichtheid (aantal woningen per km²)',
+                                          yaxis_title='CO₂-uitstoot (in ton)',
+                                          yaxis_title_font_size = 14,
+                                          xaxis_title_font_size = 14,
+                                          width=800, height=600,
+                                          font_family = "sans-serif",
+                                          title_font_size = 16,
+                                          plot_bgcolor='whitesmoke')
 
-                scatter_co2_wd2b.update_layout(title='<b>CO₂-uitstoot woningen en woningdichtheid per gemeente in 2019</b>',
-                                              xaxis_title='Woningdichtheid (aantal woningen per km²)',
-                                              yaxis_title='CO₂-uitstoot (in ton)',
-                                              yaxis_title_font_size = 14,
-                                              xaxis_title_font_size = 14,
-                                              width=800, height=600,
-                                              font_family = "sans-serif",
-                                              title_font_size = 16,
-                                              plot_bgcolor='whitesmoke')
-
-                st.plotly_chart(scatter_co2_wd2b, use_container_width=True)
+            st.plotly_chart(scatter_co2_wd2b, use_container_width=True)
