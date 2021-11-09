@@ -902,6 +902,7 @@ if sidebar_page == 'Statistische analyse':
             st.plotly_chart(hm, use_container_width=True)
         
             df = pd.DataFrame({'Variabele': ['CO₂-uitstoot', 'Woningdichtheid'], 'Eenheid': ['Ton', 'Aantal woningen per km²']})
+            df.index = df['Variabele']
             st.table(df)
     
     if radio_analyse == 'Regressie':
