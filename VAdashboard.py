@@ -228,7 +228,7 @@ if sidebar_page == 'CO₂-uitstoot':
                                 
             elif radio_zoom_hist == 'Zonder uitschieters':
                 fig = px.histogram(histdata, x="totaal_co2", color = 'Jaar', nbins = 400,
-                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(222, 64, 116)', 'rgb(250, 200, 116)'])
+                                   color_discrete_sequence=['rgb(131, 30, 113)', 'rgb(237, 106, 111)', 'rgb(250, 200, 116)'])
                 
                 fig.update_layout(barmode='group')
             #    fig.update_traces(opacity=0.6)
