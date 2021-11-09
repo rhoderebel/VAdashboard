@@ -975,6 +975,6 @@ if sidebar_page == 'Datasets en bronvermelding':
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
         
-    st.dataframe(co2.head())
+    st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
     st.dataframe(woningdichtheid.head())
     st.dataframe(gemeentegrenzen.head())
