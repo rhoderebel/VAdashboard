@@ -220,6 +220,8 @@ if sidebar_page == 'CO₂-uitstoot':
                     xaxis_title_font_size = 14,
                     yaxis_title_font_size = 14,
                     legend_title_font_size = 14,
+                    bargap = 0.2,
+                    bargroupgap = 0.1,
                     plot_bgcolor='#d8dcdc'
                 )
 
@@ -398,7 +400,7 @@ if sidebar_page == 'CO₂-uitstoot':
                 fig.update_traces(opacity=0.6)
 
                 fig.update_layout(
-                    title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente</b> (ingezoomd)',
+                    title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief<br>auto(snel)wegen per gemeente</b> (ingezoomd)',
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
