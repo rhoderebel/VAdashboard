@@ -213,6 +213,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
+                    title_x = 0.5,
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
@@ -234,6 +235,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b> (ingezoomd)',
+                    title_x = 0.5,
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
@@ -399,6 +401,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) exclusief<br>auto(snel)wegen per gemeente</b> (ingezoomd)',
+                    title_x = 0.5,
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
@@ -542,6 +545,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.update_layout(
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b>',
+                    title_x = 0.5,
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
@@ -563,6 +567,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
                 fig.update_layout(
                     title_text='<b>Verdeling CO₂-uitstoot (in ton) woningen per gemeente</b> (ingezoomd)',
+                    title_x = 0.5,
                     xaxis_title_text='CO₂-uitstoot (in ton)',
                     yaxis_title_text='Frequentie (aantal gemeenten)',
                     font_family = "sans-serif",
