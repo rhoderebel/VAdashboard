@@ -920,7 +920,7 @@ if sidebar_page == 'Statistische analyse':
             Y = co2_woningdichtheid_2019_merge['co2_woningen']
             model = sm.OLS(Y, X).fit()
             
-            st.write(model.summary())
+            st.markdown(model.summary())
            
 
         with col4:
