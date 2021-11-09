@@ -922,8 +922,8 @@ if sidebar_page == 'Statistische analyse':
             model0 = model.summary().tables[0]
             model1 = model.summary().tables[1]
             
-            st.table(model0)
-            st.table(model1)
+            st.write(model0)
+            st.write(model1)
            
 
         with col4:
