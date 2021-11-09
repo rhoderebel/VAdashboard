@@ -209,7 +209,7 @@ if sidebar_page == 'CO₂-uitstoot':
                                    color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
                 
                 fig.update_layout(barmode='group')
-                fig.update_traces(opacity=0.6)
+             #   fig.update_traces(opacity=0.6)
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b>',
@@ -231,7 +231,7 @@ if sidebar_page == 'CO₂-uitstoot':
                                    color_discrete_sequence=['#734656', '#ae5f58', '#f29544'])
                 
                 fig.update_layout(barmode='group')
-                fig.update_traces(opacity=0.6)
+            #    fig.update_traces(opacity=0.6)
 
                 fig.update_layout(
                     title_text='<b>Verdeling totale CO₂-uitstoot (in ton) per gemeente</b> (ingezoomd)',
