@@ -20,7 +20,6 @@ import plotly.figure_factory as ff
 
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
 url = "https://www.cbs.nl/nl-nl/achtergrond/2018/14/energieverbruik-van-particuliere-huishoudens"
-st.markdown("check out this [link](%s)" % url)
 
 st.markdown(
         f"""
@@ -425,6 +424,8 @@ if sidebar_page == 'CO₂-uitstoot':
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
         st.markdown("")
+        st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+        st.sidebar.markdown("*De waardes zijn <strong>temperatuurgecorrigeerd</strong>, om het klimaateffect uit de cijfers te halen. Meer hierover lees je [hier](%s)." % url)
         
         col5, col6 = st.columns([2,1])
 
@@ -510,7 +511,7 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_won = top5_won[['2017', '2018', '2019']]
 
             st.table(top5_won)
-            green_block("Met <strong>CO₂-uitstoot woningen</strong> wordt de CO₂-uitstoot van woningen wegens aardgas, elektriciteit en stadswarmte bedoeld. De waardes zijn <strong>temperatuurgecorrigeerd</strong>, om het klimaateffect uit de cijfers te halen. Meer hierover lees je [hier](%s)." % url)
+            green_block("Met <strong>CO₂-uitstoot woningen</strong> wordt de CO₂-uitstoot van woningen wegens aardgas, elektriciteit en stadswarmte bedoeld.")
         
         st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
             
