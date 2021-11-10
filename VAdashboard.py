@@ -59,6 +59,7 @@ sidebar_page = st.sidebar.selectbox('Kies een pagina: ', ['CO₂-uitstoot', 'Won
 
 if sidebar_page == 'CO₂-uitstoot':
     st.markdown("<h1 style='text-align: center; '>CO₂-uitstoot</h1>", unsafe_allow_html=True)
+    st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
     # Inladen data co2
@@ -91,7 +92,6 @@ if sidebar_page == 'CO₂-uitstoot':
     
     if radio_co2_type == 'Totale CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot op de kaart</h3>", unsafe_allow_html=True)
-        green_block('''Hier komt informatie''')
         st.markdown("")
         
         col1, col2 = st.columns([2,1])
@@ -177,6 +177,8 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_totaal = top5_totaal[['2017', '2018', '2019']]
 
             st.table(top5_totaal)
+            
+            green_block('''Hier komt informatie''')
             
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
