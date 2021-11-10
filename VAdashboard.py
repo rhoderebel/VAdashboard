@@ -19,6 +19,8 @@ import plotly.figure_factory as ff
 ####################################################################################################################################################################
 
 st.set_page_config(page_title = 'Dashboard CO₂-uitstoot en woningdichtheid', page_icon = "🏘️", layout = 'wide')
+url = "https://www.cbs.nl/nl-nl/achtergrond/2018/14/energieverbruik-van-particuliere-huishoudens"
+st.markdown("check out this [link](%s)" % url)
 
 st.markdown(
         f"""
