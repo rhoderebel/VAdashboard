@@ -508,7 +508,7 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_won = top5_won[['2017', '2018', '2019']]
 
             st.table(top5_won)
-            green_block("Met <strong>CO₂-uitstoot woningen</strong> wordt de CO₂-uitstoot van woningen bedoeld. Dit betreft CO₂-uitstoot van woningen wegens aardgas, elektriciteit en stadswarmte.")
+            green_block("Met <strong>CO₂-uitstoot woningen</strong> wordt de CO₂-uitstoot van woningen wegens aardgas, elektriciteit en stadswarmte bedoeld. De waardes zijn <strong>temperatuurgecorrigeerd</strong>, om het klimaateffect uit de cijfers te halen. Meer hierover lees je hier.")
         
         st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
             
