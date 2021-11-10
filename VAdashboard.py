@@ -923,7 +923,7 @@ if sidebar_page == 'Statistische analyse':
     
     if radio_analyse == 'Regressie':
         st.markdown("<h3 style='text-align: center; '>Regressie</h3>", unsafe_allow_html=True)
-        green_block('''In de correlatie heatmap werd duidelijk dat <strong>woningdichtheid</strong> het meest correleert met (zoals te verwachten) <strong>CO₂ woningen</strong>. Om te onderzoeken hoe goed de woningdichtheid voorspeld kan worden op basis van de CO₂-uitstoot van woningen, is een regressie uitgevoerd. De resultaten hiervan zijn op deze pagina te bekijken.''')
+        green_block('''In de correlatie heatmap werd duidelijk dat <strong>woningdichtheid</strong> het meest correleert met (zoals te verwachten) <strong>CO₂ woningen</strong>. Om te onderzoeken hoe goed de woningdichtheid voorspeld kan worden op basis van de CO₂-uitstoot van woningen, is er een regressie uitgevoerd. De resultaten hiervan zijn op deze pagina te bekijken.''')
         st.markdown("")
         
         st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
