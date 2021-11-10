@@ -185,10 +185,9 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         st.markdown("")
         
-        radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
-        
         col1a, col1b = st.columns(2)
         with col1a:
+            radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
             st.markdown('**Uitschieters totale CO₂-uitstoot (> 1,5 miljoen ton)**')
             
             outliers_totaal_2017 = (histdata[(histdata['totaal_co2'] >= 1500000) & 
