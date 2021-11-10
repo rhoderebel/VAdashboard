@@ -154,7 +154,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                              title = '<b>Totaal bekende CO₂-uitstoot (in ton) per gemeente<br>(aardgas, elektr., stadswarmte woningen, voertuigbrandstoffen)</b>',
+                              title = '<b>Totale CO₂-uitstoot (in ton) per gemeente</b>',
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "sans-serif",
@@ -178,7 +178,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_totaal)
             
-            green_block('''Hier komt informatie''')
+            green_block('''Met totale CO₂-uitstoot wordt de totaal bekende CO₂-uitstoot bedoeld. Dit betreft CO₂-uitstoot wegens aardgas, elektriciteit, stadwarmte woningen en voertuigbrandstoffen.''')
             
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
