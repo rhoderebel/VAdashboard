@@ -179,7 +179,9 @@ if sidebar_page == 'CO₂-uitstoot':
             st.table(top5_totaal)
             
             green_block('''Met totale CO₂-uitstoot wordt de totaal bekende CO₂-uitstoot bedoeld. Dit betreft CO₂-uitstoot wegens aardgas, elektriciteit, stadwarmte woningen en voertuigbrandstoffen.''')
-            
+        
+        st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+        
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         green_block("Hier komt informatie")
         st.markdown("")
