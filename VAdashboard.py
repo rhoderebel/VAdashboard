@@ -991,7 +991,7 @@ if sidebar_page == 'Datasets en bronvermelding':
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
     
     st.subheader("Dataset")
-    st.markdown("<p font = 'font-size:50px;'>**CO₂-uitstoot**</p>", unsafe_allow_html=True)
+    st.markdown("<p style = 'font-size:50px;'>**CO₂-uitstoot**</p>", unsafe_allow_html=True)
     st.markdown("**CO₂-uitstoot**")
     col1, col2 = st.columns([1.5, 1])
     with col1:      
