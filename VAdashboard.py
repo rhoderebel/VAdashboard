@@ -591,8 +591,8 @@ if sidebar_page == 'CO₂-uitstoot':
 
 if sidebar_page == 'Woningdichtheid':
      st.markdown("<h1 style='text-align: center; '>Woningdichtheid</h1>", unsafe_allow_html=True)
+     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
      st.markdown("<h3 style='text-align: center; '>Woningdichtheid per gemeente op de kaart</h3>", unsafe_allow_html=True)
-     green_block("Hier komt informatie")
      st.markdown("")
     
      # Inladen data woningdichtheid
@@ -665,9 +665,8 @@ if sidebar_page == 'Woningdichtheid':
           st.table(top5_woningdichtheid_2019)
     
      ####################################################################################################################################################################
-
+     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
-     green_block("Hier komt informatie")
      st.markdown("")
      
      radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters'])
