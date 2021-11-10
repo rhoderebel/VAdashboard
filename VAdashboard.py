@@ -329,7 +329,7 @@ if sidebar_page == 'CO₂-uitstoot':
             st.plotly_chart(fig, use_container_width=True) # Laat de plot zien
 
         with col4:
-            st.markdown('**Top 5: totale CO₂-uitstoot (in ton) exclusief auto(snel)snelwegen per gemeente**')
+            st.markdown('**Top 5: totale CO₂-uitstoot (in ton) exclusief auto(snel)wegen per gemeente**')
 
             top5_2017_ext = geo_co2_merge_2017.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
             top5_2018_ext = geo_co2_merge_2018.sort_values(by = 'totaal_co2_ext_weg', ascending = False)[['Gemeenten', 'totaal_co2_ext_weg']].reset_index(drop = True).head(5)
@@ -343,7 +343,7 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_ext = top5_ext[['2017', '2018', '2019']]
 
             st.table(top5_ext)
-            green_block("Hier komt informatie")
+            green_block("Met totale CO₂-uitstoot exclusief auto(snel)wegen wordt de totaal bekende CO₂-uitstoot bedoeld exlusief CO₂-uitstoot wegens voertuigbrandstoffen op auto(snel)wegen.")
             
         st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
