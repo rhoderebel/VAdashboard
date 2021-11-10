@@ -178,7 +178,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             st.table(top5_totaal)
             
-            green_block('''Met totale CO₂-uitstoot wordt de totaal bekende CO₂-uitstoot bedoeld. Dit betreft CO₂-uitstoot wegens aardgas, elektriciteit, stadwarmte woningen en voertuigbrandstoffen.''')
+            green_block('''Met <strong>totale CO₂-uitstoot</strong> wordt de totaal bekende CO₂-uitstoot bedoeld. Dit betreft CO₂-uitstoot wegens aardgas, elektriciteit, stadwarmte woningen en voertuigbrandstoffen.''')
         
         st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
@@ -343,7 +343,7 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_ext = top5_ext[['2017', '2018', '2019']]
 
             st.table(top5_ext)
-            green_block("Met totale CO₂-uitstoot exclusief auto(snel)wegen wordt de totaal bekende CO₂-uitstoot bedoeld exlusief CO₂-uitstoot wegens voertuigbrandstoffen op auto(snel)wegen.")
+            green_block("Met <strong>totale CO₂-uitstoot exclusief auto(snel)wegen</strong> wordt de totaal bekende CO₂-uitstoot bedoeld exclusief CO₂-uitstoot wegens voertuigbrandstoffen op auto(snel)wegen.")
             
         st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
