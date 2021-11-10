@@ -984,7 +984,7 @@ if sidebar_page == 'Statistische analyse':
 if sidebar_page == 'Datasets en bronvermelding':
     st.markdown("<h1 style='text-align: center; '>Datasets en bronvermelding</h1>", unsafe_allow_html=True)
     st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
-    st.sidebar.markdown("De tabellen op deze pagina tonen de eerste vijf rijen van de datasets die gebruikt zijn in dit dashboard. Dit is niet .. NOG TYPEN")
+    st.sidebar.markdown("*De tabellen op deze pagina tonen de eerste vijf rijen van de datasets die gebruikt zijn in dit dashboard. Dit zijn niet de ruwe data, maar de geïnspecteerde en opgeschoonde data.")
         
     co2 = pd.read_csv('co2.csv')
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
@@ -995,7 +995,7 @@ if sidebar_page == 'Datasets en bronvermelding':
     with col1:      
         st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
     with col2:
-        green_block2("Deze bewerkte dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.", "Bron: https://klimaatmonitor.databank.nl/jive")
+        green_block2("Deze bewerkte* dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.", "Bron: https://klimaatmonitor.databank.nl/jive")
     
     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
@@ -1005,11 +1005,11 @@ if sidebar_page == 'Datasets en bronvermelding':
     with col3:
         st.dataframe(woningdichtheid.head())
     with col4:
-        green_block2("Deze bewerkte dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
+        green_block2("Deze bewerkte* dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
     
     st.subheader("Gemeentegrenzen")
     col5, col6 = st.columns([1, 1.5])
     with col5:
         st.dataframe(gemeentegrenzen.head())
     with col6:
-        green_block2("Deze bewerkte dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.", "Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie")
+        green_block2("Deze bewerkte* dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.", "Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie")
