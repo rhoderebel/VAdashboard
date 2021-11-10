@@ -915,7 +915,7 @@ if sidebar_page == 'Statistische analyse':
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
         
         with st.expander("Bekijk model samenvatting"):
-            col1, col2, col3 = st.columns([1,2,1])
+            col1, col2, col3 = st.columns([0.25,2,0.25])
             with col1:
                 st.markdown("")
             with col2:
