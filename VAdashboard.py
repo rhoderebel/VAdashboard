@@ -848,6 +848,7 @@ if sidebar_page == 'Woningdichtheid':
           
 if sidebar_page == 'Statistische analyse':
     st.markdown("<h1 style='text-align: center; '>Statistische analyse: CO₂-uitstoot en woningdichtheid</h1>", unsafe_allow_html=True)
+    st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
     # Inladen data merged
     co2_woningdichtheid_2019_merge = pd.read_csv('co2_woningdichtheid_2019_merge.csv')
