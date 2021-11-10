@@ -1003,15 +1003,11 @@ if sidebar_page == 'Datasets en bronvermelding':
     with col3:
         st.dataframe(woningdichtheid.head())
     with col4:
-        green_block('''Deze bewerkte dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.  
-        
-        Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb''')
+        green_block2("Deze bewerkte dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
     
     st.subheader("Gemeentegrenzen")
     col5, col6 = st.columns([1, 1.5])
     with col5:
         st.dataframe(gemeentegrenzen.head())
     with col6:
-        green_block('''Deze bewerkte dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.  
-        
-        Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie''')
+        green_block2("Deze bewerkte dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.", "Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie")
