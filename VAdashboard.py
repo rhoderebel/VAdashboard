@@ -669,187 +669,190 @@ if sidebar_page == 'Woningdichtheid':
      st.markdown("<h3 style='text-align: center; '>Verdeling woningdichtheid</h3>", unsafe_allow_html=True)
      st.markdown("")
      
-     radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters'])
+     col1, col2 = st.columns([1,4])
+     with col1:
+          radio_boxplot = st.radio('Weergave', ['Met puntenwolk', 'Zonder puntenwolk', 'Zonder uitschieters'])
      
-     if radio_boxplot == 'Met puntenwolk':
+     with col2:
+          if radio_boxplot == 'Met puntenwolk':
+ 
+               boxplot_wd = go.Figure()
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                           name='2017',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(210,236,190)',
+                                           marker_color='rgb(124,177,88)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           boxpoints='all',
+                                           jitter=0.7,
+                                           pointpos=2
+                                           ))
 
-          boxplot_wd = go.Figure()
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                           name='2018',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(171,218,205)',
+                                           marker_color='rgb(70,135,156)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           boxpoints='all',
+                                           jitter=0.7,
+                                           pointpos=2
+                                           ))
 
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
-                                      name='2017',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(210,236,190)',
-                                      marker_color='rgb(124,177,88)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      boxpoints='all',
-                                      jitter=0.7,
-                                      pointpos=2
-                                      ))
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                           name='2019',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(196,192,211)',
+                                           marker_color='rgb(59,51,95)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           boxpoints='all',
+                                           jitter=0.7,
+                                           pointpos=2
+                                           ))
+ 
+               boxplot_wd.update_traces(width=0.4)
+ 
+               boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
+                                        plot_bgcolor='whitesmoke',
+                                        yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                                        xaxis_title="Jaar",
+                                        legend_title_text='Jaar',
+                                        font_family = "sans-serif",
+                                        yaxis_title_font_size = 14,
+                                        xaxis_title_font_size = 14,
+                                        legend_title_font_size = 14,
+                                        title_font_size = 16,
+                                        width=900,
+                                        height=600
+                                       )
 
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
-                                      name='2018',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(171,218,205)',
-                                      marker_color='rgb(70,135,156)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      boxpoints='all',
-                                      jitter=0.7,
-                                      pointpos=2
-                                      ))
+               med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
 
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
-                                      name='2019',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(196,192,211)',
-                                      marker_color='rgb(59,51,95)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      boxpoints='all',
-                                      jitter=0.7,
-                                      pointpos=2
-                                      ))
-
-          boxplot_wd.update_traces(width=0.4)
-
-          boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
-                                   plot_bgcolor='whitesmoke',
-                                   yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
-                                   xaxis_title="Jaar",
-                                   legend_title_text='Jaar',
-                                   font_family = "sans-serif",
-                                   yaxis_title_font_size = 14,
-                                   xaxis_title_font_size = 14,
-                                   legend_title_font_size = 14,
-                                   title_font_size = 16,
-                                   width=900,
-                                   height=600
-                                  )
-        
-          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
-
-          for i in [2017, 2018, 2019]:
-            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
-                                      text = "mediaan: "+str(med_won_jaar.get(i)),
-                                      showarrow = False)          
-          
-          st.plotly_chart(boxplot_wd)
-          
-     elif radio_boxplot == "Zonder puntenwolk":
-          boxplot_wd = go.Figure()
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
-                                      name='2017',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(210,236,190)',
-                                      marker_color='rgb(124,177,88)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      ))
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
-                                      name='2018',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(171,218,205)',
-                                      marker_color='rgb(70,135,156)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      ))
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
-                                      name='2019',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(196,192,211)',
-                                      marker_color='rgb(59,51,95)',
-                                      marker_size=4,
-                                      whiskerwidth=0.3,
-                                      ))
-
-          boxplot_wd.update_traces(width=0.4)
-
-          boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
-                                   plot_bgcolor='whitesmoke',
-                                   yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
-                                   xaxis_title="Jaar",
-                                   legend_title_text='Jaar',
-                                   font_family = "sans-serif",
-                                   yaxis_title_font_size = 14,
-                                   xaxis_title_font_size = 14,
-                                   legend_title_font_size = 14,
-                                   title_font_size = 16,
-                                   width=900,
-                                   height=600
-                                  )
-        
-          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
-
-          for i in [2017, 2018, 2019]:
-            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
-                                      text = "mediaan: "+str(med_won_jaar.get(i)),
-                                      showarrow = False) 
-        
-          st.plotly_chart(boxplot_wd)
-                                        
-     elif radio_boxplot == 'Zonder uitschieters':
-          boxplot_wd = go.Figure()
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
-                                      name='2017',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(210,236,190)',
-                                      marker_color='rgb(124,177,88)',
-                                      marker_size=4,
-                                      marker={'opacity':0},
-                                      whiskerwidth=0.3
-                                      ))
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
-                                      name='2018',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(171,218,205)',
-                                      marker_color='rgb(70,135,156)',
-                                      marker_size=4,
-                                      marker={'opacity':0},
-                                      whiskerwidth=0.3
-                                      ))
-
-          boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
-                                      name='2019',
-                                      text=woningdichtheid['Gemeenten'],
-                                      fillcolor='rgb(196,192,211)',
-                                      marker_color='rgb(59,51,95)',
-                                      marker_size=4,
-                                      marker={'opacity':0},
-                                      whiskerwidth=0.3
-                                      ))
-
-          boxplot_wd.update_traces(width=0.4)
-
-          boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
-                                   plot_bgcolor='whitesmoke',
-                                   yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
-                                   xaxis_title="Jaar",
-                                   legend_title_text='Jaar',
-                                   font_family = "sans-serif",
-                                   yaxis_title_font_size = 14,
-                                   xaxis_title_font_size = 14,
-                                   legend_title_font_size = 14,
-                                   title_font_size = 16,
-                                   width=900,
-                                   height=600,
-                                   yaxis_range = [-100, 1200]
-                                  )
-        
-          med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
-
-          for i in [2017, 2018, 2019]:
-            boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 40,
-                                      text = "mediaan: "+str(med_won_jaar.get(i)),
-                                      showarrow = False) 
-        
-          st.plotly_chart(boxplot_wd)
-
+               for i in [2017, 2018, 2019]:
+                 boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+                                           text = "mediaan: "+str(med_won_jaar.get(i)),
+                                           showarrow = False)          
+ 
+               st.plotly_chart(boxplot_wd)
+ 
+          elif radio_boxplot == "Zonder puntenwolk":
+               boxplot_wd = go.Figure()
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                           name='2017',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(210,236,190)',
+                                           marker_color='rgb(124,177,88)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           ))
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                           name='2018',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(171,218,205)',
+                                           marker_color='rgb(70,135,156)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           ))
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                           name='2019',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(196,192,211)',
+                                           marker_color='rgb(59,51,95)',
+                                           marker_size=4,
+                                           whiskerwidth=0.3,
+                                           ))
+ 
+               boxplot_wd.update_traces(width=0.4)
+ 
+               boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
+                                        plot_bgcolor='whitesmoke',
+                                        yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                                        xaxis_title="Jaar",
+                                        legend_title_text='Jaar',
+                                        font_family = "sans-serif",
+                                        yaxis_title_font_size = 14,
+                                        xaxis_title_font_size = 14,
+                                        legend_title_font_size = 14,
+                                        title_font_size = 16,
+                                        width=900,
+                                        height=600
+                                       )
+ 
+               med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
+ 
+               for i in [2017, 2018, 2019]:
+                 boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 60,
+                                           text = "mediaan: "+str(med_won_jaar.get(i)),
+                                           showarrow = False) 
+ 
+               st.plotly_chart(boxplot_wd)
+ 
+          elif radio_boxplot == 'Zonder uitschieters':
+               boxplot_wd = go.Figure()
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
+                                           name='2017',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(210,236,190)',
+                                           marker_color='rgb(124,177,88)',
+                                           marker_size=4,
+                                           marker={'opacity':0},
+                                           whiskerwidth=0.3
+                                           ))
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2018]['Woningdichtheid'],
+                                           name='2018',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(171,218,205)',
+                                           marker_color='rgb(70,135,156)',
+                                           marker_size=4,
+                                           marker={'opacity':0},
+                                           whiskerwidth=0.3
+                                           ))
+ 
+               boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2019]['Woningdichtheid'],
+                                           name='2019',
+                                           text=woningdichtheid['Gemeenten'],
+                                           fillcolor='rgb(196,192,211)',
+                                           marker_color='rgb(59,51,95)',
+                                           marker_size=4,
+                                           marker={'opacity':0},
+                                           whiskerwidth=0.3
+                                           ))
+ 
+               boxplot_wd.update_traces(width=0.4)
+ 
+               boxplot_wd.update_layout(title_text="<b>Woningdichtheid (aantal woningen per km²) per gemeente per jaar</b>",
+                                        plot_bgcolor='whitesmoke',
+                                        yaxis_title="Woningdichtheid<br>(aantal woningen per km²)",
+                                        xaxis_title="Jaar",
+                                        legend_title_text='Jaar',
+                                        font_family = "sans-serif",
+                                        yaxis_title_font_size = 14,
+                                        xaxis_title_font_size = 14,
+                                        legend_title_font_size = 14,
+                                        title_font_size = 16,
+                                        width=900,
+                                        height=600,
+                                        yaxis_range = [-100, 1200]
+                                       )
+ 
+               med_won_jaar = woningdichtheid.groupby('Jaar')['Woningdichtheid'].median()
+ 
+               for i in [2017, 2018, 2019]:
+                 boxplot_wd.add_annotation(x = i-2017, y = med_won_jaar.get(i) + 40,
+                                           text = "mediaan: "+str(med_won_jaar.get(i)),
+                                           showarrow = False) 
+ 
+               st.plotly_chart(boxplot_wd)
+ 
 ####################################################################################################################################################################
 ####################################################################################################################################################################          
           
