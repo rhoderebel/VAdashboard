@@ -425,7 +425,7 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
         st.markdown("")
         st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
-        st.sidebar.markdown("*De waardes zijn <strong>temperatuurgecorrigeerd</strong>, om het klimaateffect uit de cijfers te halen. Meer hierover lees je [hier](%s)." % url)
+        st.sidebar.markdown("*De waardes zijn **temperatuurgecorrigeerd**, om het klimaateffect uit de cijfers te halen. Meer hierover lees je [hier](%s)." % url)
         
         col5, col6 = st.columns([2,1])
 
@@ -488,7 +488,7 @@ if sidebar_page == 'CO₂-uitstoot':
 
             # Zet de margins
             fig.update_layout(margin={"r":0, "t": 50, "l": 20, "b": 100},
-                              title = '<b>CO₂-uitstoot (in ton) woningen per gemeente,<br>temperatuurgecorrigeerd (aardgas, elektriciteit en stadswarmte)</b>',
+                              title = '<b>CO₂-uitstoot (in ton) woningen per gemeente, temperatuurgecorrigeerd*</b>',
                               title_x = 0.5,
                               title_y = 0.97,
                               font_family = "sans-serif",
