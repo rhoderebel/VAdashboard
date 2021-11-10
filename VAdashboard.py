@@ -114,7 +114,8 @@ if sidebar_page == 'CO₂-uitstoot':
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
-                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'}))
+                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'},
+                                                  hoverlabel = {'bgcolor': '#d2ecbe'}))
                 c += 1
 
 
@@ -278,7 +279,8 @@ if sidebar_page == 'CO₂-uitstoot':
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
-                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'}))
+                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'},
+                                                  hoverlabel = {'bgcolor': '#d2ecbe'}))
                 c += 1
 
 
@@ -442,7 +444,8 @@ if sidebar_page == 'CO₂-uitstoot':
                                                   marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'indianred',
                                                   name = i, visible = v,
                                                   featureidkey="properties.statnaam",
-                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'}))
+                                                  colorbar={"title": 'CO₂-uitstoot (in ton)'},
+                                                  hoverlabel = {'bgcolor': '#d2ecbe'}))
                 c += 1
 
 
@@ -605,7 +608,8 @@ if sidebar_page == 'Woningdichtheid':
                                           zmax=geo_woningdichtheid_2019_merge['Woningdichtheid'].max(),
                                           marker_opacity=0.8, marker_line_width=0.5, marker_line_color = 'cadetblue',
                                           featureidkey="properties.statnaam",
-                                          colorbar={'title':'<b>Woningdichtheid<br>(aantal woningen<br>per km²)</b>'}
+                                          colorbar={'title':'<b>Woningdichtheid<br>(aantal woningen<br>per km²)</b>'},
+                                          hoverlabel = {'bgcolor': '#ac247c'}
                                          ))
 
           fig_wd.update_layout(mapbox_style="carto-positron",
