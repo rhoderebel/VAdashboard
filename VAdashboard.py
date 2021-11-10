@@ -257,7 +257,6 @@ if sidebar_page == 'CO₂-uitstoot':
 
     elif radio_co2_type == 'Totale CO₂-uitstoot exclusief auto(snel)wegen':
         st.markdown("<h3 style='text-align: center; '>Totale CO₂-uitstoot exclusief auto(snel)wegen op de kaart</h3>", unsafe_allow_html=True)
-        green_block("Hier komt informatie")
         st.markdown("")
         
         col3, col4 = st.columns([2,1])
@@ -344,15 +343,16 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_ext = top5_ext[['2017', '2018', '2019']]
 
             st.table(top5_ext)
-         
-        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
-        green_block("Hier komt informatie")
-        st.markdown("")
+            green_block("Hier komt informatie")
+            
+        st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
-        radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
+        st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
+        st.markdown("")
         
         col2a, col2b = st.columns(2)
         with col2a:
+            radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
             st.markdown('**Uitschieters totale CO₂-uitstoot exclusief auto(snel)wegen (> 1 miljoen ton)**')
             
             outliers_ext_2017 = (histdata[(histdata['totaal_co2_ext_weg'] >= 1000000) & 
@@ -422,7 +422,6 @@ if sidebar_page == 'CO₂-uitstoot':
 
     elif radio_co2_type == 'CO₂-uitstoot woningen':
         st.markdown("<h3 style='text-align: center; '>CO₂-uitstoot woningen</h1>", unsafe_allow_html=True)
-        green_block("Hier komt informatie")
         st.markdown("")
         
         col5, col6 = st.columns([2,1])
@@ -509,15 +508,16 @@ if sidebar_page == 'CO₂-uitstoot':
             top5_won = top5_won[['2017', '2018', '2019']]
 
             st.table(top5_won)
+            green_block("Hier komt informatie")
+        
+        st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
             
         st.markdown("<h3 style='text-align: center; '>Verdeling CO₂-uitstoot woningen</h3>", unsafe_allow_html=True)
-        green_block("Hier komt informatie")
         st.markdown("")
-        
-        radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
         
         col3a, col3b = st.columns(2)
         with col3a:
+            radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
             st.markdown('**Uitschieters  CO₂-uitstoot woningen (> 300.000 ton)**')
             
             outliers_won_2017 = (histdata[(histdata['co2_woningen'] >= 300000) & 
