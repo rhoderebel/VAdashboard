@@ -915,10 +915,16 @@ if sidebar_page == 'Statistische analyse':
         checkbox_trend = st.sidebar.checkbox('Laat trendlijn zien')
         
         with st.expander("Bekijk model samenvatting"):
-            X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
-            Y = co2_woningdichtheid_2019_merge['co2_woningen']
-            model = sm.OLS(Y, X).fit()
-            st.code(model.summary())
+            col1, col2, col3 = st.columns([1,2,1])
+            with col1:
+                st.markdown("")
+            with col2:
+                X = sm.add_constant(co2_woningdichtheid_2019_merge['Woningdichtheid'])
+                Y = co2_woningdichtheid_2019_merge['co2_woningen']
+                model = sm.OLS(Y, X).fit()
+                st.code(model.summary())
+            with col3:
+                st.markdown("")
                 
      
         if checkbox_trend:
