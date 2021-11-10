@@ -988,7 +988,8 @@ if sidebar_page == 'Datasets en bronvermelding':
 
     st.header("Dataset: CO₂-uitstoot")        
     st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
-    
+    st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+        
     st.header("Hulpbronnen")
     st.subheader("Woningdichtheid")
     st.dataframe(woningdichtheid.head())
