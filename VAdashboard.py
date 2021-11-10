@@ -985,7 +985,13 @@ if sidebar_page == 'Datasets en bronvermelding':
     co2 = pd.read_csv('co2.csv')
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
-        
+
+    st.header("Dataset: CO₂-uitstoot")        
     st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
+    
+    st.header("Hulpbronnen")
+    st.subheader("Woningdichtheid")
     st.dataframe(woningdichtheid.head())
+    
+    st.subheader("Gemeentegrenzen")
     st.dataframe(gemeentegrenzen.head())
