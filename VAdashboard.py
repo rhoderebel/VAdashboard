@@ -991,7 +991,7 @@ if sidebar_page == 'Datasets en bronvermelding':
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
     
     st.subheader("Dataset")
-    st.markdown("<p style = 'font-size:20px;'><strong>CO₂-uitstoot</strong></p>", unsafe_allow_html=True)
+    st.markdown("<p style = 'font-size:20px;'><strong>CO₂-uitstoot</strong> (Klimaatmonitor)</p>", unsafe_allow_html=True)
     col1, col2 = st.columns([1.5, 1])
     with col1:      
         st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
@@ -1001,14 +1001,14 @@ if sidebar_page == 'Datasets en bronvermelding':
     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
     st.subheader("Hulpbronnen")
-    st.markdown("<p style = 'font-size:20px;'><strong>Woningdichtheid</strong></p>", unsafe_allow_html=True)
+    st.markdown("<p style = 'font-size:20px;'><strong>Woningdichtheid</strong> (CBS)</p>", unsafe_allow_html=True)
     col3, col4 = st.columns([1, 1.5])
     with col3:
         st.dataframe(woningdichtheid.head())
     with col4:
         green_block2("Deze bewerkte* dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
     
-    st.markdown("<p style = 'font-size:20px;'><strong>Gemeentegrenzen</strong></p>", unsafe_allow_html=True)
+    st.markdown("<p style = 'font-size:20px;'><strong>Gemeentegrenzen</strong> (CBS)</p>", unsafe_allow_html=True)
     col5, col6 = st.columns([1, 1.5])
     with col5:
         st.dataframe(gemeentegrenzen.head())
