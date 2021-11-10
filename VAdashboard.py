@@ -209,6 +209,11 @@ if sidebar_page == 'CO₂-uitstoot':
             outliers_totaal.fillna('-', inplace = True)
 
             st.table(outliers_totaal)
+            
+            med_co2_totaal = histdata.groupby('Jaar')['totaal_co2'].median()
+            st.markdown(med_co2_totaal.get(2017))
+            st.markdown(med_co2_totaal.get(2018))
+            st.markdown(med_co2_totaal.get(2019))
 
         with col1b:
             if radio_zoom_hist == 'Volledig':
