@@ -34,8 +34,8 @@ st.markdown(
 def green_block(tekst):
      st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(210, 236, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
      
-def green_block2(tekst, tekst2):
-     st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(210, 236, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p><p>{tekst2}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
+def green_block3(tekst, tekst2, tekst3):
+     st.markdown(f'<div data-stale="false" class="element-container css-1e5imcs e1tzin5v1"><div class="stAlert"><div role="alert" data-baseweb="notification" class="st-ae st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-en st-ao st-ap st-aq st-ar st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b9 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6" style="background-color: rgb(210, 236, 190, 0.8); border-color: rgb(187, 217, 117); color: rgb(54, 77, 7)"><div class="st-b7"><div class="css-whx05o e13vu3m50"><div data-testid="stMarkdownContainer" class="css-1h7ljws e16nr0p30"><p>{tekst}</p><p>{tekst2}</p><p>{tekst3}</p></div></div></div></div></div></div>', unsafe_allow_html=True)
     
 st.markdown(
     """
@@ -996,7 +996,7 @@ if sidebar_page == 'Datasets en bronvermelding':
     with col1:      
         st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
     with col2:
-        green_block2("Deze bewerkte* dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.", "Bron: https://klimaatmonitor.databank.nl/jive")
+        green_block3("<strong>Omschrijving</strong>", "Deze bewerkte* dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.", "Bron: https://klimaatmonitor.databank.nl/jive")
     
     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     
@@ -1006,11 +1006,11 @@ if sidebar_page == 'Datasets en bronvermelding':
     with col3:
         st.dataframe(woningdichtheid.head())
     with col4:
-        green_block2("Deze bewerkte* dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
+        green_block3("<strong>Omschrijving</strong>", "Deze bewerkte* dataset bevat de woningdichtheid (aantal woningen per km²) per gemeente in Nederland voor 2017, 2018 en 2019. Deze dataset is verkregen door het aanpassen van de tabel ‘Regionale kerncijfers Nederland’ in StatLine en dient als hulpbron voor de CO2 dataset.", "Bron: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70072NED/table?fromstatweb")
     
     st.markdown("<p style = 'font-size:20px;'><strong>Gemeentegrenzen</strong> (CBS)</p>", unsafe_allow_html=True)
     col5, col6 = st.columns([1, 1.5])
     with col5:
         st.dataframe(gemeentegrenzen.head())
     with col6:
-        green_block2("Deze bewerkte* dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.", "Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie")
+        green_block3("<strong>Omschrijving</strong>", "Deze bewerkte* dataset bevat de coördinaten van de grenzen van alle gemeenten in Nederland in 2019 met bijbehorende gemeentecode. De oorspronkelijke coördinaten zijn omgezet naar lengte- en breedtegraden. Deze dataset dient als hulpbron voor de CO2 dataset.", "Bron: https://www.cbs.nl/nl-nl/onze-diensten/open-data/statline-als-open-data/cartografie")
