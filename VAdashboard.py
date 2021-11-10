@@ -984,13 +984,13 @@ if sidebar_page == 'Datasets en bronvermelding':
     co2 = pd.read_csv('co2.csv')
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
     gemeentegrenzen = pd.read_csv('gemeentegrenzen.csv')
-
+    
+    st.header("Dataset: CO₂-uitstoot")
     col1, col2 = st.columns([1.5, 1])
-    with col1:
-        st.header("Dataset: CO₂-uitstoot")        
+    with col1:      
         st.dataframe(co2[['Gemeenten', 'Jaar', 'totaal_co2', 'totaal_co2_ext_weg', 'co2_woningen']].head())
     with col2:
-        st.markdown('''Deze bewerkte dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.''')
+        green_block('''Deze bewerkte dataset bevat de totale CO2-uitstoot, totale CO2-uitstoot exclusief wegen en CO2-uitstoot voor woningen in ton per gemeente in Nederland voor 2017, 2018 en 2019.''')
     st.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
         
     st.header("Hulpbronnen")
