@@ -643,7 +643,7 @@ if sidebar_page == 'Woningdichtheid':
           fig_wd.update_layout(updatemenus=[{'type': 'buttons', 'buttons': buttons, 'x': -0.02, 'y': 0.92, 'direction' : 'down'}])
   
           # Tekst voor button en legenda toevoegen
-          fig_wd.update_layout(annotations=[dict(text="Zoomlevel (top 5 gemeenten)", font_size=15, x=-0.5, y=1, xref="paper", yref="paper",
+          fig_wd.update_layout(annotations=[dict(text="Zoomlevel (top 5 gemeenten)", font_size=12, x=-0.5, y=1, xref="paper", yref="paper",
                                               align="left", showarrow=False)])
 
           st.plotly_chart(fig_wd, use_container_width=True)
