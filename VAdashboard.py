@@ -1032,6 +1032,8 @@ if sidebar_page == 'Datasets en bronvermelding':
     st.markdown("<h1 style='text-align: center; '>Datasets en bronvermelding</h1>", unsafe_allow_html=True)
     st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
     st.sidebar.markdown("*De tabellen op deze pagina tonen de eerste vijf rijen van de datasets die gebruikt zijn in dit dashboard. Dit zijn niet de ruwe data, maar de geïnspecteerde en opgeschoonde data.")
+    st.sidebar.markdown("""<hr style="height:5px;border:none;color:rgb(187, 217, 117);background-color:rgb(187, 217, 117);" /> """, unsafe_allow_html=True)
+    st.sidebar.markdown("Makers: Lisa Mulder (500831854) en Rhodé Rebel (500819128)")
         
     co2 = pd.read_csv('co2.csv')
     woningdichtheid = pd.read_csv('woningdichtheid.csv')
