@@ -234,7 +234,7 @@ if sidebar_page == 'CO₂-uitstoot':
                 fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
                                    text = "<b>mediaan 2017: "+ str(med_co2_totaal.get(2017)) + '<br>' +
                                    "mediaan 2018: " + str(med_co2_totaal.get(2018)) + '<br>' +
-                                   "mediaan 2019: " + str(med_co2_totaal.get(2019)) + '</b>,
+                                   "mediaan 2019: " + str(med_co2_totaal.get(2019)) + '</b>',
                                    font_size = 14,
                                    showarrow = False)
 
