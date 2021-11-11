@@ -186,6 +186,8 @@ if sidebar_page == 'CO₂-uitstoot':
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot</h3>", unsafe_allow_html=True)
         st.markdown("")
         
+        med_co2_totaal = histdata.groupby('Jaar')['totaal_co2'].median()
+        
         col1a, col1b = st.columns(2)
         with col1a:
             radio_zoom_hist = st.radio('Zoom: ', ['Volledig', 'Zonder uitschieters'])
@@ -229,6 +231,11 @@ if sidebar_page == 'CO₂-uitstoot':
                     legend_title_font_size = 14,
                     plot_bgcolor='#d8dcdc'
                 )
+                fig.add_annotation(x = 0.75, y = 0.75,
+                                   text = "mediaan 2017: "+ str(med_co2_totaal.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_totaal.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_totaal.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)                
                                 
@@ -350,6 +357,8 @@ if sidebar_page == 'CO₂-uitstoot':
         
         st.markdown("<h3 style='text-align: center; '>Verdeling totale CO₂-uitstoot exclusief auto(snel)wegen</h3>", unsafe_allow_html=True)
         st.markdown("")
+        
+        med_co2_ext = histdata.groupby('Jaar')['totaal_co2_ext_weg'].median()
         
         col2a, col2b = st.columns(2)
         with col2a:
@@ -517,6 +526,8 @@ if sidebar_page == 'CO₂-uitstoot':
             
         st.markdown("<h3 style='text-align: center; '>Verdeling CO₂-uitstoot woningen</h3>", unsafe_allow_html=True)
         st.markdown("")
+        
+        med_co2_won = histdata.groupby('Jaar')['co2_woningen'].median()
         
         col3a, col3b = st.columns(2)
         with col3a:
