@@ -258,6 +258,12 @@ if sidebar_page == 'CO₂-uitstoot':
                     plot_bgcolor='#d8dcdc',
                     xaxis_range = [0, 1500000]
                 )
+                
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                                   text = "mediaan 2017: "+ str(med_co2_totaal.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_totaal.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_totaal.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -403,6 +409,12 @@ if sidebar_page == 'CO₂-uitstoot':
                     legend_title_font_size = 14,
                     plot_bgcolor='#d8dcdc'
                 )
+                
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                                   text = "mediaan 2017: "+ str(med_co2_ext.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_ext.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_ext.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)                
                                 
@@ -425,6 +437,12 @@ if sidebar_page == 'CO₂-uitstoot':
                     plot_bgcolor='#d8dcdc',
                     xaxis_range = [0, 1000000]
                 )
+                
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                                   text = "mediaan 2017: "+ str(med_co2_ext.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_ext.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_ext.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)
     
@@ -572,6 +590,12 @@ if sidebar_page == 'CO₂-uitstoot':
                     legend_title_font_size = 14,
                     plot_bgcolor='#d8dcdc'
                 )
+                
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                                   text = "mediaan 2017: "+ str(med_co2_won.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_won.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_won.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)                
                                 
@@ -594,6 +618,12 @@ if sidebar_page == 'CO₂-uitstoot':
                     plot_bgcolor='#d8dcdc',
                     xaxis_range = [0, 300000]
                 )
+                
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                                   text = "mediaan 2017: "+ str(med_co2_won.get(2017)) + '<br>' +
+                                   "mediaan 2018: " + str(med_co2_won.get(2018)) + '<br>' +
+                                   "mediaan 2019: " + str(med_co2_won.get(2019)),
+                                   showarrow = False)
 
                 st.plotly_chart(fig, use_container_width=True)
                     
