@@ -591,7 +591,7 @@ if sidebar_page == 'CO₂-uitstoot':
                     plot_bgcolor='#d8dcdc'
                 )
                 
-                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.92,
+                fig.add_annotation(xref = 'paper', yref = 'paper', x = 0.9, y = 0.94,
                                    text = "mediaan 2017: "+ str(med_co2_won.get(2017)) + '<br>' +
                                    "mediaan 2018: " + str(med_co2_won.get(2018)) + '<br>' +
                                    "mediaan 2019: " + str(med_co2_won.get(2019)),
