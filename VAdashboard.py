@@ -867,7 +867,6 @@ if sidebar_page == 'Statistische analyse':
     if radio_analyse == 'Correlatie':
 
         st.markdown("<h3 style='text-align: center; '>Correlatie</h3>", unsafe_allow_html=True)
-        green_block('''Hier komt informatie''')
         st.markdown("")
 
         col1, col2 = st.columns([1.3, 1])
