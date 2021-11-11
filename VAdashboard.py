@@ -680,7 +680,8 @@ if sidebar_page == 'Woningdichtheid':
  
                boxplot_wd.add_trace(go.Box(y=woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
                                            name='2017',
-                                           text='<b>' + woningdichtheid[woningdichtheid['Jaar'] == 2017]['Gemeenten'] + '</b>',
+                                           text='<b>' + woningdichtheid[woningdichtheid['Jaar'] == 2017]['Gemeenten'] + '</b><br>' +
+                                           'Woningdichtheid: ' + woningdichtheid[woningdichtheid['Jaar'] == 2017]['Woningdichtheid'],
                                            fillcolor='rgb(210,236,190)',
                                            marker_color='rgb(124,177,88)',
                                            marker_size=4,
