@@ -12,7 +12,7 @@ import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
-import statsmodels.api as sm
+import statsmodels as sm
 import plotly.figure_factory as ff
 
 ####################################################################################################################################################################
